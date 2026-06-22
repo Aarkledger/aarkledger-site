@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const EMAIL = "louie@aarkledger.com";
-const MAILTO_DISCOVERY =
-  "mailto:louie@aarkledger.com?subject=Discovery%20Call%20Request%20%E2%80%94%20Aarkledger&body=Hi%20Louie%2C%0A%0AI%27d%20like%20to%20book%20a%20free%2030-minute%20discovery%20call.%0A%0ABusiness%20name%3A%0AJurisdiction%20(Canada%20%2F%20US%20%2F%20Philippines)%3A%0AEntity%20type%20(sole%20prop%20%2F%20incorporated%20%2F%20corporation)%3A%0AWhat%20you%20need%20help%20with%3A%0A%0AThanks!";
+const MAILTO_INQUIRY =
+  "mailto:louie@aarkledger.com?subject=Inquiry%20%E2%80%94%20Aarkledger&body=Hi%20Louie%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20how%20Aarkledger%20can%20help.%0A%0ABusiness%20name%3A%0AJurisdiction%20(Canada%20%2F%20US%20%2F%20Philippines)%3A%0AEntity%20type%20(sole%20prop%20%2F%20incorporated%20%2F%20corporation)%3A%0AWhat%20you%20need%20help%20with%3A%0A%0AThanks!";
 
 const Check = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -21,15 +21,15 @@ const services = [
     ),
   },
   {
-    title: "Tax Preparation & Compliance",
-    body: "Personal and corporate returns, sales tax (GST/HST, US sales tax, BIR VAT), and optimization — filed correctly and on time.",
+    title: "Tax Preparation & Filing",
+    body: "Personal and corporate return preparation and sales tax (GST/HST, US sales tax, BIR VAT) — organized accurately and filed on time.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12h6M9 16h6M9 8h6"/><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg>
     ),
   },
   {
     title: "Financial Reporting",
-    body: "ASPE, US GAAP, IFRS, and PFRS-compliant statements with notes and a management letter you can hand to lenders and investors.",
+    body: "Clear monthly and annual financial statements with supporting schedules you can share with owners, lenders, and partners.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg>
     ),
@@ -60,12 +60,11 @@ const services = [
 const regions = {
   CA: {
     label: "Canada",
-    note: "Prices in CAD per month, exclusive of GST/HST. Benchmarked to CPA Canada market rates.",
+    note: "For Canadian sole proprietors, SMEs, and corporations. Scope is set by your monthly transaction volume.",
     plans: [
       {
         name: "Starter",
         who: "Sole Proprietor / Freelancer",
-        price: "CAD 550",
         features: [
           "Bookkeeping up to 80 txns/mo",
           "Monthly bank reconciliation",
@@ -77,13 +76,12 @@ const regions = {
       {
         name: "Growth",
         who: "SME / Incorporated",
-        price: "CAD 1,400",
         featured: true,
         features: [
           "Bookkeeping up to 300 txns/mo",
           "Bank + subsidiary reconciliation",
           "Monthly + quarterly GST/HST",
-          "ASPE-compliant statements",
+          "Monthly financial statements",
           "Payroll up to 20 employees",
           "Annual T2 corporate return",
           "Priority email & chat support",
@@ -92,14 +90,13 @@ const regions = {
       {
         name: "Corporate",
         who: "Corporation / High-Volume",
-        price: "CAD 2,800+",
         features: [
           "Bookkeeping 300+ txns/mo",
           "Multi-account reconciliation",
           "Consolidated statements",
           "Payroll up to 50 employees",
           "FP&A (budget vs. actual)",
-          "CRA audit support",
+          "CRA correspondence support",
           "Dedicated point-of-contact",
         ],
       },
@@ -107,12 +104,11 @@ const regions = {
   },
   US: {
     label: "United States",
-    note: "Prices in USD per month, exclusive of state/local taxes. Benchmarked to AICPA survey data.",
+    note: "For US sole proprietors, LLCs, S-corps, and corporations. Scope is set by your monthly transaction volume.",
     plans: [
       {
         name: "Starter",
         who: "Sole Proprietor / Freelancer",
-        price: "USD 500",
         features: [
           "Bookkeeping up to 80 txns/mo",
           "Monthly bank reconciliation",
@@ -124,13 +120,12 @@ const regions = {
       {
         name: "Growth",
         who: "SME / S-Corp / LLC",
-        price: "USD 1,200",
         featured: true,
         features: [
           "Bookkeeping up to 300 txns/mo",
           "Bank + subsidiary reconciliation",
           "State sales tax filing (1 state)",
-          "US GAAP-compliant statements",
+          "Monthly financial statements",
           "Payroll up to 20 employees",
           "Annual return (1040/1120/1120-S/1065)",
           "Priority email & chat support",
@@ -139,14 +134,13 @@ const regions = {
       {
         name: "Corporate",
         who: "C-Corp / Multi-State",
-        price: "USD 2,500+",
         features: [
           "Bookkeeping 300+ txns/mo",
           "Multi-state sales tax compliance",
           "Consolidated statements",
           "Payroll up to 50 employees",
           "FP&A (budget vs. actual)",
-          "IRS audit support",
+          "IRS correspondence support",
           "Dedicated point-of-contact",
         ],
       },
@@ -154,12 +148,11 @@ const regions = {
   },
   PH: {
     label: "Philippines",
-    note: "Prices in ₱ per month, exclusive of 12% VAT. Benchmarked to local PFRS / BIR market rates.",
+    note: "For Philippine sole proprietors, SMEs, and corporations. Scope is set by your monthly transaction volume.",
     plans: [
       {
         name: "Starter",
         who: "Sole Proprietor / Freelancer",
-        price: "₱4,500",
         features: [
           "Bookkeeping up to 80 txns/mo",
           "Monthly bank reconciliation",
@@ -171,13 +164,12 @@ const regions = {
       {
         name: "Growth",
         who: "SME / VAT-Registered",
-        price: "₱12,000",
         featured: true,
         features: [
           "Bookkeeping up to 300 txns/mo",
           "Bank + subsidiary reconciliation",
           "BIR VAT (2550M, 2550Q, 1601C)",
-          "PFRS-compliant statements",
+          "Monthly financial statements",
           "Payroll up to 20 employees",
           "Quarterly management report",
           "Priority email & chat support",
@@ -186,7 +178,6 @@ const regions = {
       {
         name: "Corporate",
         who: "Corporation / High-Volume",
-        price: "₱25,000+",
         features: [
           "Bookkeeping 300+ txns/mo",
           "Multi-account reconciliation",
@@ -202,11 +193,11 @@ const regions = {
 };
 
 const engagements = [
-  { name: "Financial Reporting", desc: "Compliant statements + notes + management letter", rate: "Per engagement" },
+  { name: "Financial Statements", desc: "Monthly or annual statements + supporting schedules", rate: "Per engagement" },
   { name: "Personal Tax Returns", desc: "T1 / Form 1040 / BIR 1701 + schedules", rate: "Per filing" },
-  { name: "Corporate Tax Returns", desc: "T2 / 1120 / 1702 + optimization", rate: "Per filing" },
+  { name: "Corporate Tax Returns", desc: "T2 / 1120 / 1702 preparation", rate: "Per filing" },
   { name: "Sales Tax / VAT Filing", desc: "GST/HST, US sales tax, BIR VAT returns", rate: "Per filing" },
-  { name: "Audit Preparation", desc: "PBC schedules, working papers, audit liaison", rate: "Per engagement" },
+  { name: "Audit Prep Support", desc: "Schedules & working papers for your external auditor", rate: "Per engagement" },
   { name: "FP&A — Budget & Forecast", desc: "Annual budget + cash flow + variance analysis", rate: "Per engagement" },
   { name: "ERP Setup & Migration", desc: "Cloud and mid-market implementation + training", rate: "One-time" },
   { name: "Entity Formation", desc: "Incorporation / LLC / SEC / DTI registration", rate: "One-time" },
@@ -228,7 +219,7 @@ export default function Home() {
             <a href="#pricing">Packages</a>
             <a href="#engagements">Engagements</a>
             <a href="#about">About</a>
-            <a href="#contact" className="btn btn-accent">Book a discovery call</a>
+            <a href={`mailto:${EMAIL}`} className="btn btn-accent">Email us</a>
           </nav>
         </div>
       </header>
@@ -239,21 +230,21 @@ export default function Home() {
           <div className="container">
             <div className="hero-inner">
               <span className="eyebrow">Financial consultancy · CA · US · PH</span>
-              <h1>Clear books, clean compliance, confident decisions.</h1>
+              <h1>Clear books, organized records, confident decisions.</h1>
               <p>
-                Aarkledger handles bookkeeping, tax, reporting, payroll, and FP&amp;A
-                for sole proprietors, SMEs, and corporations across Canada, the United
-                States, and the Philippines — to the standards regulators and lenders
-                expect.
+                Aarkledger is an independent accounting and advisory practice handling
+                bookkeeping, tax, reporting, payroll, and FP&amp;A for sole proprietors,
+                SMEs, and corporations across Canada, the United States, and the
+                Philippines — accurate, organized, and ready when you need them.
               </p>
               <div className="hero-actions">
-                <a href="#contact" className="btn btn-accent">Book a free discovery call</a>
+                <a href={MAILTO_INQUIRY} className="btn btn-accent">Email us</a>
                 <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
               </div>
               <div className="hero-meta">
-                <div><strong>3 jurisdictions</strong><span>CPA Canada · AICPA · PICPA</span></div>
+                <div><strong>3 jurisdictions</strong><span>Canada · US · Philippines</span></div>
                 <div><strong>End-to-end</strong><span>Books to board reporting</span></div>
-                <div><strong>Free 30-min call</strong><span>No obligation</span></div>
+                <div><strong>By email</strong><span>Replies within 1 business day</span></div>
               </div>
             </div>
           </div>
@@ -265,7 +256,7 @@ export default function Home() {
             <div className="section-head">
               <span className="eyebrow">What we do</span>
               <h2>Full-service finance, one accountable partner</h2>
-              <p>From day-to-day bookkeeping to strategic planning, every engagement is delivered to the relevant professional standard in your jurisdiction.</p>
+              <p>From day-to-day bookkeeping to forward planning, every engagement is delivered with accuracy, clear documentation, and a defined scope.</p>
             </div>
             <div className="grid">
               {services.map((s) => (
@@ -279,13 +270,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing */}
+        {/* Packages */}
         <section id="pricing" className="section-soft">
           <div className="container">
             <div className="section-head">
               <span className="eyebrow">Monthly retainers</span>
-              <h2>Simple, transparent package pricing</h2>
-              <p>Choose your jurisdiction. Every retainer assumes a stated transaction band; high-volume clients get a custom quote.</p>
+              <h2>Monthly packages built around your needs</h2>
+              <p>Choose your jurisdiction and see exactly what each package includes. Reach out by email for a quote tailored to your volume.</p>
             </div>
 
             <div className="region-tabs">
@@ -307,19 +298,17 @@ export default function Home() {
                   {p.featured && <span className="badge">Most Popular</span>}
                   <h3>{p.name}</h3>
                   <div className="who">{p.who}</div>
-                  <div className="price">
-                    {p.price} <span>/ month</span>
-                  </div>
+                  <div className="plan-includes">What&apos;s included</div>
                   <ul>
                     {p.features.map((f) => (
                       <li key={f}><Check /> {f}</li>
                     ))}
                   </ul>
                   <a
-                    href={MAILTO_DISCOVERY}
+                    href={MAILTO_INQUIRY}
                     className={`btn${p.featured ? " btn-accent" : " btn-ghost"}`}
                   >
-                    Get started
+                    Enquire by email
                   </a>
                 </div>
               ))}
@@ -355,21 +344,20 @@ export default function Home() {
             <div>
               <h2>An accounting partner built for cross-border businesses</h2>
               <p>
-                Aarkledger is a financial consultancy serving clients across Canada,
-                the United States, and the Philippines. We pair rigorous local
-                compliance — ASPE, US GAAP, IFRS, and PFRS — with practical, modern
-                bookkeeping and reporting.
+                Aarkledger is an independent financial consultancy serving clients
+                across Canada, the United States, and the Philippines. We provide
+                practical, detail-oriented bookkeeping, reporting, and back-office
+                support — without the overhead of an in-house finance team.
               </p>
               <p>
-                Pricing reflects local industry standards in each market, not
-                nationality-based differentiation, so you always pay a fair,
-                benchmarked rate. Every engagement is governed by a signed engagement
-                letter and delivered to recognized professional standards.
+                We work on a clear, contractual basis: every engagement is defined by a
+                signed engagement letter that sets out scope, deliverables, and
+                timelines, so you always know exactly what you are getting.
               </p>
             </div>
             <div className="stats">
               <div className="stat"><strong>CA · US · PH</strong><span>Multi-jurisdiction coverage</span></div>
-              <div className="stat"><strong>4 standards</strong><span>ASPE · GAAP · IFRS · PFRS</span></div>
+              <div className="stat"><strong>By contract</strong><span>Defined scope &amp; deliverables</span></div>
               <div className="stat"><strong>Up to 50</strong><span>Employees on payroll</span></div>
               <div className="stat"><strong>48 hr</strong><span>Rush turnaround available</span></div>
             </div>
@@ -381,10 +369,9 @@ export default function Home() {
           <div className="container">
             <div className="cta">
               <h2>Let&apos;s get your books in order</h2>
-              <p>Book a free 30-minute discovery call. Tell us about your business and we&apos;ll recommend the right package or engagement — no obligation.</p>
+              <p>Reach out by email and tell us about your business. We&apos;ll recommend the right package or engagement — no obligation.</p>
               <div className="cta-actions">
-                <a href={MAILTO_DISCOVERY} className="btn btn-accent">Book your free discovery call</a>
-                <a href={`mailto:${EMAIL}`} className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>Email us</a>
+                <a href={MAILTO_INQUIRY} className="btn btn-accent">Email us</a>
               </div>
               <div className="cta-email">
                 Or reach us directly at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
@@ -414,7 +401,7 @@ export default function Home() {
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Aarkledger. All rights reserved.</span>
-            <span>CPA Canada · AICPA · PICPA aligned · Engagements by signed letter</span>
+            <span>Independent accounting &amp; advisory · Engagements by signed contract</span>
           </div>
         </div>
       </footer>
