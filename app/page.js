@@ -345,7 +345,7 @@ export default function Home() {
               </p>
             </div>
             <div className="stats">
-              <div className="stat"><strong>Established in 2015</strong><span>Providing consultancy services in Metro Cebu and globally</span></div>
+              <div className="stat"><strong>Established in 2015</strong><span>A decade of accounting and finance expertise</span></div>
               <div className="stat"><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
               <div className="stat"><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
               <div className="stat"><strong>Asia-Pacific reach</strong><span>Serving clients across North America and the Asia-Pacific region</span></div>
