@@ -3,8 +3,6 @@
 import { useState } from "react";
 
 const EMAIL = "louie@aarkledger.com";
-const MAILTO_INQUIRY =
-  "mailto:louie@aarkledger.com?subject=Inquiry%20%E2%80%94%20Aarkledger&body=Hi%20Louie%2C%0A%0AI%27d%20like%20to%20learn%20more%20about%20how%20Aarkledger%20can%20help.%0A%0ABusiness%20name%3A%0AJurisdiction%20(Canada%20%2F%20US%20%2F%20Philippines)%3A%0AEntity%20type%20(sole%20prop%20%2F%20incorporated%20%2F%20corporation)%3A%0AWhat%20you%20need%20help%20with%3A%0A%0AThanks!";
 
 const Check = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -193,14 +191,14 @@ const regions = {
 };
 
 const engagements = [
-  { name: "Financial Statements", desc: "Monthly or annual statements + supporting schedules", rate: "Per engagement" },
-  { name: "Personal Tax Returns", desc: "T1 / Form 1040 / BIR 1701 + schedules", rate: "Per filing" },
-  { name: "Corporate Tax Returns", desc: "T2 / 1120 / 1702 preparation", rate: "Per filing" },
-  { name: "Sales Tax / VAT Filing", desc: "GST/HST, US sales tax, BIR VAT returns", rate: "Per filing" },
-  { name: "Audit Prep Support", desc: "Schedules & working papers for your external auditor", rate: "Per engagement" },
-  { name: "FP&A — Budget & Forecast", desc: "Annual budget + cash flow + variance analysis", rate: "Per engagement" },
-  { name: "ERP Setup & Migration", desc: "Cloud and mid-market implementation + training", rate: "One-time" },
-  { name: "Entity Formation", desc: "Incorporation / LLC / SEC / DTI registration", rate: "One-time" },
+  { name: "Financial Statements", desc: "Monthly or annual statements + supporting schedules" },
+  { name: "Personal Tax Returns", desc: "T1 / Form 1040 / BIR 1701 + schedules" },
+  { name: "Corporate Tax Returns", desc: "T2 / 1120 / 1702 preparation" },
+  { name: "Sales Tax / VAT Filing", desc: "GST/HST, US sales tax, BIR VAT returns" },
+  { name: "Audit Prep Support", desc: "Schedules & working papers for your external auditor" },
+  { name: "FP&A — Budget & Forecast", desc: "Annual budget + cash flow + variance analysis" },
+  { name: "ERP Setup & Migration", desc: "Cloud and mid-market implementation + training" },
+  { name: "Entity Formation", desc: "Incorporation / LLC / SEC / DTI registration" },
 ];
 
 export default function Home() {
@@ -219,7 +217,6 @@ export default function Home() {
             <a href="#pricing">Packages</a>
             <a href="#engagements">Engagements</a>
             <a href="#about">About</a>
-            <a href={`mailto:${EMAIL}`} className="btn btn-accent">Email us</a>
           </nav>
         </div>
       </header>
@@ -229,16 +226,15 @@ export default function Home() {
         <section className="hero" style={{ padding: 0 }}>
           <div className="container">
             <div className="hero-inner">
-              <span className="eyebrow">Financial consultancy · CA · US · PH</span>
-              <h1>Clear books, organized records, confident decisions.</h1>
+              <span className="eyebrow">Finance Business Partner · Metro Cebu</span>
+              <h1>Finance built for start-ups and enterprises with complex data ecosystems.</h1>
               <p>
-                Aarkledger is an independent accounting and advisory practice handling
-                bookkeeping, tax, reporting, payroll, and FP&amp;A for sole proprietors,
-                SMEs, and corporations across Canada, the United States, and the
-                Philippines — accurate, organized, and ready when you need them.
+                Aarkledger is an independent finance and accounting partner for
+                start-ups and enterprises with complex business models and data
+                ecosystems — bringing structure to bookkeeping, reporting, payroll,
+                and FP&amp;A across Canada, the United States, and the Philippines.
               </p>
               <div className="hero-actions">
-                <a href={MAILTO_INQUIRY} className="btn btn-accent">Email us</a>
                 <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
               </div>
               <div className="hero-meta">
@@ -304,12 +300,6 @@ export default function Home() {
                       <li key={f}><Check /> {f}</li>
                     ))}
                   </ul>
-                  <a
-                    href={MAILTO_INQUIRY}
-                    className={`btn${p.featured ? " btn-accent" : " btn-ghost"}`}
-                  >
-                    Enquire by email
-                  </a>
                 </div>
               ))}
             </div>
@@ -322,7 +312,7 @@ export default function Home() {
             <div className="section-head">
               <span className="eyebrow">Project & à la carte</span>
               <h2>Engagement services, billed per project</h2>
-              <p>Need something specific rather than a monthly retainer? These are scoped and quoted per engagement, with 50% upfront and 50% on completion.</p>
+              <p>Need something specific rather than a monthly retainer? These are scoped as standalone projects, with 50% upfront and 50% on completion.</p>
             </div>
             <div className="engage-grid">
               {engagements.map((e) => (
@@ -331,7 +321,6 @@ export default function Home() {
                     <div className="name">{e.name}</div>
                     <div className="desc">{e.desc}</div>
                   </div>
-                  <div className="rate">{e.rate}</div>
                 </div>
               ))}
             </div>
@@ -342,12 +331,12 @@ export default function Home() {
         <section id="about" className="section-soft">
           <div className="container about-wrap">
             <div>
-              <h2>An accounting partner built for cross-border businesses</h2>
+              <h2>A finance partner built for start-ups and complex business models</h2>
               <p>
-                Aarkledger is an independent financial consultancy serving clients
-                across Canada, the United States, and the Philippines. We provide
-                practical, detail-oriented bookkeeping, reporting, and back-office
-                support — without the overhead of an in-house finance team.
+                Aarkledger is an independent finance and accounting partner for
+                start-ups and enterprises with complex business models and data
+                ecosystems. We bring structure to bookkeeping, reporting, payroll,
+                and FP&amp;A — without the overhead of an in-house finance team.
               </p>
               <p>
                 We work on a clear, contractual basis: every engagement is defined by a
@@ -356,10 +345,10 @@ export default function Home() {
               </p>
             </div>
             <div className="stats">
+              <div className="stat"><strong>Since 2015</strong><span>Based in Metro Cebu</span></div>
+              <div className="stat"><strong>Start-ups</strong><span>Focused on complex business models</span></div>
+              <div className="stat"><strong>IB + PE</strong><span>Finance leaders with investment banking &amp; private equity experience</span></div>
               <div className="stat"><strong>CA · US · PH</strong><span>Multi-jurisdiction coverage</span></div>
-              <div className="stat"><strong>By contract</strong><span>Defined scope &amp; deliverables</span></div>
-              <div className="stat"><strong>Up to 50</strong><span>Employees on payroll</span></div>
-              <div className="stat"><strong>48 hr</strong><span>Rush turnaround available</span></div>
             </div>
           </div>
         </section>
@@ -369,12 +358,9 @@ export default function Home() {
           <div className="container">
             <div className="cta">
               <h2>Let&apos;s get your books in order</h2>
-              <p>Reach out by email and tell us about your business. We&apos;ll recommend the right package or engagement — no obligation.</p>
-              <div className="cta-actions">
-                <a href={MAILTO_INQUIRY} className="btn btn-accent">Email us</a>
-              </div>
+              <p>Tell us about your business and we&apos;ll recommend the right package or engagement — no obligation.</p>
               <div className="cta-email">
-                Or reach us directly at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                Reach out to our Finance Business Partner: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </div>
             </div>
           </div>
