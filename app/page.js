@@ -225,7 +225,7 @@ export default function Home() {
           </a>
           <nav className="nav-links">
             <a href="#services">Services</a>
-            <a href="#pricing">Pricing</a>
+            <a href="#pricing">Packages</a>
             <a href="#engagements">Engagements</a>
             <a href="#about">About</a>
             <a href="#contact" className="btn btn-accent">Book a discovery call</a>
@@ -248,7 +248,7 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <a href="#contact" className="btn btn-accent">Book a free discovery call</a>
-                <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View pricing</a>
+                <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
               </div>
               <div className="hero-meta">
                 <div><strong>3 jurisdictions</strong><span>CPA Canada · AICPA · PICPA</span></div>
@@ -406,7 +406,7 @@ export default function Home() {
             </div>
             <div className="footer-links">
               <a href="#services">Services</a>
-              <a href="#pricing">Pricing</a>
+              <a href="#pricing">Packages</a>
               <a href="#engagements">Engagements</a>
               <a href="#about">About</a>
               <a href={`mailto:${EMAIL}`}>Contact</a>
