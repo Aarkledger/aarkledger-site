@@ -226,13 +226,13 @@ export default function Home() {
         <section className="hero" style={{ padding: 0 }}>
           <div className="container">
             <div className="hero-inner">
-              <span className="eyebrow">Finance Business Partner · Metro Cebu</span>
+              <span className="eyebrow">Financial Consultancy Firm · Metro Cebu</span>
               <h1>Finance built for start-ups and enterprises with complex data ecosystems.</h1>
               <p>
-                Aarkledger is an independent finance and accounting partner for
-                start-ups and enterprises with complex business models and data
-                ecosystems — bringing structure to bookkeeping, reporting, payroll,
-                and FP&amp;A across Canada, the United States, and the Philippines.
+                Aarkledger is a boutique financial consultancy firm for start-ups
+                and enterprises with complex business models and data ecosystems —
+                bringing structure to bookkeeping, reporting, payroll, and FP&amp;A
+                across Canada, the United States, and the Philippines.
               </p>
               <div className="hero-actions">
                 <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
@@ -331,12 +331,12 @@ export default function Home() {
         <section id="about" className="section-soft">
           <div className="container about-wrap">
             <div>
-              <h2>A finance partner built for start-ups and complex business models</h2>
+              <h2>The consultancy firm built for start-ups and enterprises with complex data ecosystems</h2>
               <p>
-                Aarkledger is an independent finance and accounting partner for
-                start-ups and enterprises with complex business models and data
-                ecosystems. We bring structure to bookkeeping, reporting, payroll,
-                and FP&amp;A — without the overhead of an in-house finance team.
+                Aarkledger is a boutique financial consultancy firm for start-ups
+                and enterprises with complex business models and data ecosystems.
+                We bring structure to bookkeeping, reporting, payroll, and FP&amp;A
+                — without the overhead of an in-house finance team.
               </p>
               <p>
                 We work on a clear, contractual basis: every engagement is defined by a
@@ -345,10 +345,10 @@ export default function Home() {
               </p>
             </div>
             <div className="stats">
-              <div className="stat"><strong>Since 2015</strong><span>Based in Metro Cebu</span></div>
-              <div className="stat"><strong>Start-ups</strong><span>Focused on complex business models</span></div>
-              <div className="stat"><strong>IB + PE</strong><span>Finance leaders with investment banking &amp; private equity experience</span></div>
-              <div className="stat"><strong>CA · US · PH</strong><span>Multi-jurisdiction coverage</span></div>
+              <div className="stat"><strong>Established in 2015</strong><span>Providing consultancy services in Metro Cebu and globally</span></div>
+              <div className="stat"><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
+              <div className="stat"><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
+              <div className="stat"><strong>Asia-Pacific reach</strong><span>Serving clients across North America and the Asia-Pacific region</span></div>
             </div>
           </div>
         </section>
@@ -360,7 +360,7 @@ export default function Home() {
               <h2>Let&apos;s get your books in order</h2>
               <p>Tell us about your business and we&apos;ll recommend the right package or engagement — no obligation.</p>
               <div className="cta-email">
-                Reach out to our Finance Business Partner: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                Reach out to one of our Finance Business Partners: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               </div>
             </div>
           </div>
@@ -387,7 +387,7 @@ export default function Home() {
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} Aarkledger. All rights reserved.</span>
-            <span>Independent accounting &amp; advisory · Engagements by signed contract</span>
+            <span>Boutique financial consultancy · Engagements by signed contract</span>
           </div>
         </div>
       </footer>
