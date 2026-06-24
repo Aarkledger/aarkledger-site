@@ -5,7 +5,7 @@ export const metadata = {
   icons: { icon: [{ url: "/site-icon", type: "image/png" }] },
   title: "Aarkledger — Financial Consultancy | Bookkeeping, Tax & FP&A",
   description:
-    "Aarkledger provides bookkeeping, tax compliance, financial reporting, payroll, and FP&A for sole proprietors, SMEs, and corporations across Canada, the United States, and the Philippines.",
+    "Aarkledger provides bookkeeping, tax compliance, financial reporting, payroll, and FP&A for sole proprietors, SMEs, and corporations across the Philippines and Southeast Asia.",
   keywords: [
     "bookkeeping",
     "accounting",
@@ -13,14 +13,14 @@ export const metadata = {
     "financial reporting",
     "payroll",
     "FP&A",
-    "Canada",
-    "United States",
     "Philippines",
+    "Southeast Asia",
+    "BIR compliance",
   ],
   openGraph: {
     title: "Aarkledger — Financial Consultancy",
     description:
-      "Bookkeeping, tax, reporting, payroll, and FP&A across Canada, the US, and the Philippines.",
+      "Bookkeeping, tax, reporting, payroll, and FP&A across the Philippines and Southeast Asia.",
     url: "https://aarkledger.com",
     siteName: "Aarkledger",
     type: "website",
