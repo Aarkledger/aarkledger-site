@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const EMAIL = "louie@aarkledger.com";
 const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAABQCAYAAADYzoq3AAAChklEQVR42u3dW27jMAwFUNHI/rfMbqBoHT9J6ZzPATJwHPqKklx7DAAAAAAAAAAWFic/nzf9v0/IBsedD/2OT57PzjXDPzan4NAFXPG4c6w7sCFQBMeC3yuFiUA5UrzpokSYCBR6TA+iWSAKaYFyukCqFlEuEizWTdChCB1THQRK2CrG+Wa7efTOxu136qTgO59hgXO26Vg433Se8kSTkT4FpGOjVqDkYhdjChOBzru7PGFxUJgIlWEN5WAx7L0nJRQ36FCGrU9Ts0WnkQgUBew3oXqg5OJFpEu5fn1HqOhQwJYx537oMzskb++u5Avf+cnjr7R7tedY3IqvQxG0WnTrKQiUFUbDbsGnG1k8UM5elOEPBo36uj+BYmGw5ggbJ/6t0vnWqQBwbsTVigK7c8MuDzCsoQDtAsXiGQAAAAAAAAAAAAAAAAAAADA8noDxyoOx1ZZAaVkw2SRIc7Kgz6aDV4d6ya51snkZU9mLNSd7TYcaWqBOPALS+3WeLODqQalOBIpi8Z2ock4/w/rQ28eYO4slChdsfPmZUCu31otAWTRMfjvWLBgqR4Mhfvm83Z9r6iW9RoOOo/cVoR3CZHiNBuXe/fvGqJQXhZ4wWcBn0QWqMF+mcb2kQAGm3xkz5cHUxe+iQ2GKkVQ4TRbyOhTclNY39KLa8bkPBdSLDgWEXr1u0RpKr6lFpUcAROfCn6xOrKHw50WWDaYDaZphaiZQ6rewnUbzHBZxLZQfSLyc4OlWnZ7YVnF0yi+OsfKdp12f2BYdpsObbUWt7oXH4AFKi3cppjzC5OljsXYy8TkUKG5aeqqYQ5jMv4283fjsCyvfxy+6mCzsQjegiwMAAAAAAABgej8Cgol7BhBInQAAAABJRU5ErkJggg==";
@@ -21,7 +21,7 @@ const services = [
   },
   {
     title: "Tax Preparation & Filing",
-    body: "Personal and corporate return preparation and sales tax (GST/HST, US sales tax, BIR VAT) — organized accurately and filed on time.",
+    body: "Personal and corporate return preparation and VAT / percentage-tax filing (BIR) — organized accurately and filed on time.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12h6M9 16h6M9 8h6"/><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg>
     ),
@@ -35,7 +35,7 @@ const services = [
   },
   {
     title: "Payroll & Remittances",
-    body: "End-to-end payroll with CRA, IRS/state, and BIR remittances — scaling cleanly from your first hire to fifty employees.",
+    body: "End-to-end payroll with BIR, SSS, PhilHealth, and Pag-IBIG remittances — scaling cleanly from your first hire to fifty employees.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
     ),
@@ -56,146 +56,55 @@ const services = [
   },
 ];
 
-const regions = {
-  CA: {
-    label: "Canada",
-    note: "For Canadian sole proprietors, SMEs, and corporations. Scope is set by your monthly transaction volume.",
-    plans: [
-      {
-        name: "Starter",
-        who: "Sole Proprietor / Freelancer",
-        features: [
-          "Bookkeeping up to 80 txns/mo",
-          "Monthly bank reconciliation",
-          "Quarterly GST/HST filing",
-          "Basic financial statements",
-          "Email support",
-        ],
-      },
-      {
-        name: "Growth",
-        who: "SME / Incorporated",
-        featured: true,
-        features: [
-          "Bookkeeping up to 300 txns/mo",
-          "Bank + subsidiary reconciliation",
-          "Monthly + quarterly GST/HST",
-          "Monthly financial statements",
-          "Payroll up to 20 employees",
-          "Annual T2 corporate return",
-          "Priority email & chat support",
-        ],
-      },
-      {
-        name: "Corporate",
-        who: "Corporation / High-Volume",
-        features: [
-          "Bookkeeping 300+ txns/mo",
-          "Multi-account reconciliation",
-          "Consolidated statements",
-          "Payroll up to 50 employees",
-          "FP&A (budget vs. actual)",
-          "CRA correspondence support",
-          "Dedicated point-of-contact",
-        ],
-      },
-    ],
-  },
-  US: {
-    label: "United States",
-    note: "For US sole proprietors, LLCs, S-corps, and corporations. Scope is set by your monthly transaction volume.",
-    plans: [
-      {
-        name: "Starter",
-        who: "Sole Proprietor / Freelancer",
-        features: [
-          "Bookkeeping up to 80 txns/mo",
-          "Monthly bank reconciliation",
-          "State sales tax filing (1 state)",
-          "Basic financial statements",
-          "Email support",
-        ],
-      },
-      {
-        name: "Growth",
-        who: "SME / S-Corp / LLC",
-        featured: true,
-        features: [
-          "Bookkeeping up to 300 txns/mo",
-          "Bank + subsidiary reconciliation",
-          "State sales tax filing (1 state)",
-          "Monthly financial statements",
-          "Payroll up to 20 employees",
-          "Annual return (1040/1120/1120-S/1065)",
-          "Priority email & chat support",
-        ],
-      },
-      {
-        name: "Corporate",
-        who: "C-Corp / Multi-State",
-        features: [
-          "Bookkeeping 300+ txns/mo",
-          "Multi-state sales tax compliance",
-          "Consolidated statements",
-          "Payroll up to 50 employees",
-          "FP&A (budget vs. actual)",
-          "IRS correspondence support",
-          "Dedicated point-of-contact",
-        ],
-      },
-    ],
-  },
-  PH: {
-    label: "Philippines",
-    note: "For Philippine sole proprietors, SMEs, and corporations. Scope is set by your monthly transaction volume.",
-    plans: [
-      {
-        name: "Starter",
-        who: "Sole Proprietor / Freelancer",
-        features: [
-          "Bookkeeping up to 80 txns/mo",
-          "Monthly bank reconciliation",
-          "BIR non-VAT (1701Q, 2551Q)",
-          "Basic income statement & BS",
-          "Email support",
-        ],
-      },
-      {
-        name: "Growth",
-        who: "SME / VAT-Registered",
-        featured: true,
-        features: [
-          "Bookkeeping up to 300 txns/mo",
-          "Bank + subsidiary reconciliation",
-          "BIR VAT (2550M, 2550Q, 1601C)",
-          "Monthly financial statements",
-          "Payroll up to 20 employees",
-          "Quarterly management report",
-          "Priority email & chat support",
-        ],
-      },
-      {
-        name: "Corporate",
-        who: "Corporation / High-Volume",
-        features: [
-          "Bookkeeping 300+ txns/mo",
-          "Multi-account reconciliation",
-          "Full BIR compliance suite",
-          "Consolidated statements",
-          "Payroll up to 50 employees",
-          "FP&A (budget vs. actual)",
-          "Dedicated point-of-contact",
-        ],
-      },
-    ],
-  },
+const packages = {
+  note: "For Philippine sole proprietors, SMEs, and corporations. Scope is set by your monthly transaction volume.",
+  plans: [
+    {
+      name: "Starter",
+      who: "Sole Proprietor / Freelancer",
+      features: [
+        "Bookkeeping up to 80 txns/mo",
+        "Monthly bank reconciliation",
+        "BIR non-VAT (1701Q, 2551Q)",
+        "Basic income statement & BS",
+        "Email support",
+      ],
+    },
+    {
+      name: "Growth",
+      who: "SME / VAT-Registered",
+      featured: true,
+      features: [
+        "Bookkeeping up to 300 txns/mo",
+        "Bank + subsidiary reconciliation",
+        "BIR VAT (2550M, 2550Q, 1601C)",
+        "Monthly financial statements",
+        "Payroll up to 20 employees",
+        "Quarterly management report",
+        "Priority email & chat support",
+      ],
+    },
+    {
+      name: "Corporate",
+      who: "Corporation / High-Volume",
+      features: [
+        "Bookkeeping 300+ txns/mo",
+        "Multi-account reconciliation",
+        "Full BIR compliance suite",
+        "Consolidated statements",
+        "Payroll up to 50 employees",
+        "FP&A (budget vs. actual)",
+        "Dedicated point-of-contact",
+      ],
+    },
+  ],
 };
 
 const engagements = [
   { name: "Financial Statements", desc: "Monthly or annual statements + supporting schedules" },
-  { name: "Personal Tax Returns", desc: "T1 / Form 1040 / BIR 1701 + schedules" },
-  { name: "Corporate Tax Returns", desc: "T2 / 1120 / 1702 preparation" },
-  { name: "Sales Tax / VAT Filing", desc: "GST/HST, US sales tax, BIR VAT returns" },
+  { name: "Personal Tax Returns", desc: "BIR 1701 / 1701A + supporting schedules" },
+  { name: "Corporate Tax Returns", desc: "BIR 1702-RT / 1702-EX preparation" },
+  { name: "VAT & Percentage Tax", desc: "BIR 2550M/Q, 2551Q, 1601C filing" },
   { name: "Audit Prep Support", desc: "Schedules & working papers for your external auditor" },
   { name: "FP&A — Budget & Forecast", desc: "Annual budget + cash flow + variance analysis" },
   { name: "ERP Setup & Migration", desc: "Cloud and mid-market implementation + training" },
@@ -203,8 +112,7 @@ const engagements = [
 ];
 
 export default function Home() {
-  const [region, setRegion] = useState("CA");
-  const data = regions[region];
+  const data = packages;
 
   useEffect(() => {
     const root = document.documentElement;
@@ -258,13 +166,13 @@ export default function Home() {
                 Aarkledger is a boutique financial consultancy firm for start-ups
                 and enterprises with complex business models and data ecosystems —
                 bringing structure to bookkeeping, reporting, payroll, and FP&amp;A
-                across Canada, the United States, and the Philippines.
+                across the Philippines and Southeast Asia.
               </p>
               <div className="hero-actions">
                 <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
               </div>
               <div className="hero-meta">
-                <div><strong>3 jurisdictions</strong><span>Canada · US · Philippines</span></div>
+                <div><strong>Philippines-based</strong><span>Serving Southeast Asia &amp; beyond</span></div>
                 <div><strong>End-to-end</strong><span>Books to board reporting</span></div>
               </div>
             </div>
@@ -302,20 +210,9 @@ export default function Home() {
             <div className="section-head left">
               <span className="eyebrow">Monthly retainers</span>
               <h2>Monthly packages built around your needs</h2>
-              <p>Choose your jurisdiction and see exactly what each package includes. Reach out by email for a quote tailored to your volume.</p>
+              <p>See exactly what each package includes. Reach out by email for a quote tailored to your monthly transaction volume.</p>
             </div>
 
-            <div className="region-tabs">
-              {Object.entries(regions).map(([key, r]) => (
-                <button
-                  key={key}
-                  className={region === key ? "active" : ""}
-                  onClick={() => setRegion(key)}
-                >
-                  {r.label}
-                </button>
-              ))}
-            </div>
             <p className="region-note">{data.note}</p>
 
             <div className="plan-float">
@@ -381,7 +278,7 @@ export default function Home() {
               <div className="stat float" style={{ "--d": 1 }}><strong>Established in 2015</strong><span>A decade of accounting and finance expertise</span></div>
               <div className="stat float" style={{ "--d": 2 }}><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
               <div className="stat float" style={{ "--d": 3 }}><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
-              <div className="stat float" style={{ "--d": 2 }}><strong>Asia-Pacific reach</strong><span>Serving clients across North America and the Asia-Pacific region</span></div>
+              <div className="stat float" style={{ "--d": 2 }}><strong>Southeast Asia reach</strong><span>Serving start-ups and enterprises across the Philippines and Southeast Asia</span></div>
             </div>
           </div>
         </section>
@@ -406,8 +303,8 @@ export default function Home() {
             <div>
               <div className="brand"><img className="footer-logo" src={LOGO_SRC} alt="Aarkledger" /></div>
               <p style={{ marginTop: 12, fontSize: "0.9rem", maxWidth: 320 }}>
-                Bookkeeping, tax, reporting, payroll, and FP&amp;A across Canada, the
-                United States, and the Philippines.
+                Bookkeeping, tax, reporting, payroll, and FP&amp;A across the
+                Philippines and Southeast Asia.
               </p>
             </div>
             <div className="footer-links">
