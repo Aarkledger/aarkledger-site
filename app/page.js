@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const EMAIL = "louie@aarkledger.com";
 const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAABQCAYAAADYzoq3AAAChklEQVR42u3dW27jMAwFUNHI/rfMbqBoHT9J6ZzPATJwHPqKklx7DAAAAAAAAAAWFic/nzf9v0/IBsedD/2OT57PzjXDPzan4NAFXPG4c6w7sCFQBMeC3yuFiUA5UrzpokSYCBR6TA+iWSAKaYFyukCqFlEuEizWTdChCB1THQRK2CrG+Wa7efTOxu136qTgO59hgXO26Vg433Se8kSTkT4FpGOjVqDkYhdjChOBzru7PGFxUJgIlWEN5WAx7L0nJRQ36FCGrU9Ts0WnkQgUBew3oXqg5OJFpEu5fn1HqOhQwJYx537oMzskb++u5Avf+cnjr7R7tedY3IqvQxG0WnTrKQiUFUbDbsGnG1k8UM5elOEPBo36uj+BYmGw5ggbJ/6t0vnWqQBwbsTVigK7c8MuDzCsoQDtAsXiGQAAAAAAAAAAAAAAAAAAADA8noDxyoOx1ZZAaVkw2SRIc7Kgz6aDV4d6ya51snkZU9mLNSd7TYcaWqBOPALS+3WeLODqQalOBIpi8Z2ock4/w/rQ28eYO4slChdsfPmZUCu31otAWTRMfjvWLBgqR4Mhfvm83Z9r6iW9RoOOo/cVoR3CZHiNBuXe/fvGqJQXhZ4wWcBn0QWqMF+mcb2kQAGm3xkz5cHUxe+iQ2GKkVQ4TRbyOhTclNY39KLa8bkPBdSLDgWEXr1u0RpKr6lFpUcAROfCn6xOrKHw50WWDaYDaZphaiZQ6rewnUbzHBZxLZQfSLyc4OlWnZ7YVnF0yi+OsfKdp12f2BYdpsObbUWt7oXH4AFKi3cppjzC5OljsXYy8TkUKG5aeqqYQ5jMv4283fjsCyvfxy+6mCzsQjegiwMAAAAAAABgej8Cgol7BhBInQAAAABJRU5ErkJggg==";
@@ -206,6 +206,31 @@ export default function Home() {
   const [region, setRegion] = useState("CA");
   const data = regions[region];
 
+  useEffect(() => {
+    const root = document.documentElement;
+    let raf = 0;
+    const onMove = (e) => {
+      const x = e.clientX / window.innerWidth - 0.5;
+      const y = e.clientY / window.innerHeight - 0.5;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        root.style.setProperty("--mx", x.toFixed(3));
+        root.style.setProperty("--my", y.toFixed(3));
+      });
+    };
+    const onScroll = () => {
+      root.style.setProperty("--sy", String(window.scrollY));
+    };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <>
       <header className="site-header">
@@ -247,29 +272,34 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section id="services">
+        <section id="services" className="float-section">
+          <span className="ghost ghost-a" aria-hidden="true">finance</span>
           <div className="container">
-            <div className="section-head">
+            <div className="section-head left">
               <span className="eyebrow">What we do</span>
               <h2>Full-service finance, one accountable partner</h2>
               <p>From day-to-day bookkeeping to forward planning, every engagement is delivered with accuracy, clear documentation, and a defined scope.</p>
             </div>
-            <div className="grid">
-              {services.map((s) => (
-                <div className="card" key={s.title}>
-                  <span className="icon">{s.icon}</span>
-                  <h3>{s.title}</h3>
-                  <p>{s.body}</p>
-                </div>
+            <ul className="float-list">
+              {services.map((s, i) => (
+                <li className="float-row float" style={{ "--d": (i % 3) + 1 }} key={s.title}>
+                  <span className="float-idx">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="float-ico">{s.icon}</span>
+                  <div className="float-body">
+                    <h3>{s.title}</h3>
+                    <p>{s.body}</p>
+                  </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
         {/* Packages */}
-        <section id="pricing" className="section-soft">
+        <section id="pricing" className="section-soft float-section">
+          <span className="ghost ghost-b" aria-hidden="true">packages</span>
           <div className="container">
-            <div className="section-head">
+            <div className="section-head left">
               <span className="eyebrow">Monthly retainers</span>
               <h2>Monthly packages built around your needs</h2>
               <p>Choose your jurisdiction and see exactly what each package includes. Reach out by email for a quote tailored to your volume.</p>
@@ -288,9 +318,9 @@ export default function Home() {
             </div>
             <p className="region-note">{data.note}</p>
 
-            <div className="pricing-grid">
-              {data.plans.map((p) => (
-                <div className={`plan${p.featured ? " featured" : ""}`} key={p.name}>
+            <div className="plan-float">
+              {data.plans.map((p, i) => (
+                <div className={`plan float${p.featured ? " featured" : ""}`} style={{ "--d": i + 1 }} key={p.name}>
                   {p.featured && <span className="badge">Most Popular</span>}
                   <h3>{p.name}</h3>
                   <div className="who">{p.who}</div>
@@ -307,28 +337,31 @@ export default function Home() {
         </section>
 
         {/* Engagements */}
-        <section id="engagements">
+        <section id="engagements" className="float-section">
+          <span className="ghost ghost-a" aria-hidden="true">engage</span>
           <div className="container">
-            <div className="section-head">
+            <div className="section-head left">
               <span className="eyebrow">Project & à la carte</span>
               <h2>Engagement services, billed per project</h2>
               <p>Need something specific rather than a monthly retainer? These are scoped as standalone projects, with 50% upfront and 50% on completion.</p>
             </div>
-            <div className="engage-grid">
-              {engagements.map((e) => (
-                <div className="engage-item" key={e.name}>
-                  <div>
-                    <div className="name">{e.name}</div>
-                    <div className="desc">{e.desc}</div>
+            <ul className="float-list compact">
+              {engagements.map((e, i) => (
+                <li className="float-row float" style={{ "--d": (i % 3) + 1 }} key={e.name}>
+                  <span className="float-idx">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="float-body">
+                    <h3>{e.name}</h3>
+                    <p>{e.desc}</p>
                   </div>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 
         {/* About */}
-        <section id="about" className="section-soft">
+        <section id="about" className="section-soft float-section">
+          <span className="ghost ghost-c" aria-hidden="true">since 2015</span>
           <div className="container about-wrap">
             <div>
               <h2>The consultancy firm built for start-ups and enterprises with complex data ecosystems</h2>
@@ -345,10 +378,10 @@ export default function Home() {
               </p>
             </div>
             <div className="stats">
-              <div className="stat"><strong>Established in 2015</strong><span>A decade of accounting and finance expertise</span></div>
-              <div className="stat"><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
-              <div className="stat"><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
-              <div className="stat"><strong>Asia-Pacific reach</strong><span>Serving clients across North America and the Asia-Pacific region</span></div>
+              <div className="stat float" style={{ "--d": 1 }}><strong>Established in 2015</strong><span>A decade of accounting and finance expertise</span></div>
+              <div className="stat float" style={{ "--d": 2 }}><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
+              <div className="stat float" style={{ "--d": 3 }}><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
+              <div className="stat float" style={{ "--d": 2 }}><strong>Asia-Pacific reach</strong><span>Serving clients across North America and the Asia-Pacific region</span></div>
             </div>
           </div>
         </section>
@@ -371,7 +404,7 @@ export default function Home() {
         <div className="container">
           <div className="footer-top">
             <div>
-              <div className="brand"><span className="mark">A</span> Aarkledger</div>
+              <div className="brand"><img className="footer-logo" src={LOGO_SRC} alt="Aarkledger" /></div>
               <p style={{ marginTop: 12, fontSize: "0.9rem", maxWidth: 320 }}>
                 Bookkeeping, tax, reporting, payroll, and FP&amp;A across Canada, the
                 United States, and the Philippines.
