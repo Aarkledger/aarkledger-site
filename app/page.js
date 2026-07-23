@@ -163,6 +163,7 @@ export default function Home() {
             <a href="#pricing">Packages</a>
             <a href="#engagements">Engagements</a>
             <a href="#about">About</a>
+            <a href="/deadlines">Tax Calendar</a>
           </nav>
         </div>
       </header>
@@ -182,6 +183,7 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
+                <a href="/deadlines" className="btn btn-accent">PH Compliance Calendar</a>
               </div>
               <div className="hero-meta">
                 <div><strong>Asia Pacific</strong><span>Serving clients across the region</span></div>
@@ -312,8 +314,11 @@ export default function Home() {
               <div className="cta-email">Reach one of our Finance Business Partners directly:</div>
               <div className="cta-contacts">
                 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                <a href={`mailto:${CORP_EMAIL}`}>{CORP_EMAIL}</a>
                 <a href={`tel:${PHONE_TEL}`}>{PHONE}</a>
+              </div>
+              <div className="cta-email" style={{ marginTop: 20 }}>Main company contact details:</div>
+              <div className="cta-contacts">
+                <a href={`mailto:${CORP_EMAIL}`}>{CORP_EMAIL}</a>
                 <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>
@@ -343,6 +348,7 @@ export default function Home() {
               <a href="#pricing">Packages</a>
               <a href="#engagements">Engagements</a>
               <a href="#about">About</a>
+              <a href="/deadlines">Tax Calendar</a>
               <a href={`mailto:${EMAIL}`}>Contact</a>
               <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
