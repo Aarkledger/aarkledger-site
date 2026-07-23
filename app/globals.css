@@ -3,9 +3,9 @@
   --navy-deep: #141413;
   --slate: #2d2b2b;
   --slate-light: #7d7979;
-  --accent: #ec3013;
-  --accent-dark: #c62c0d;
-  --accent-2: #e15b47;
+  --accent: #136207;
+  --accent-dark: #0d4a05;
+  --accent-2: #4a9c30;
   --bg: #f3f2f2;
   --bg-soft: #eae9e9;
   --bg-card: #ffffff;
@@ -211,7 +211,7 @@ a {
   height: 460px;
   background: radial-gradient(
     circle,
-    rgba(236, 48, 19, 0.18) 0%,
+    rgba(19, 98, 7, 0.18) 0%,
     transparent 70%
   );
 }
@@ -600,7 +600,7 @@ section {
   height: 420px;
   background: radial-gradient(
     circle,
-    rgba(236, 48, 19, 0.2) 0%,
+    rgba(19, 98, 7, 0.2) 0%,
     transparent 70%
   );
 }
@@ -638,6 +638,41 @@ section {
   color: #fff;
   font-weight: 600;
   text-decoration: underline;
+}
+
+.cta-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 22px;
+  margin-top: 12px;
+  position: relative;
+}
+
+.cta-contacts a {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.cta-contacts a:hover {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.footer-top a {
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease;
+}
+
+.footer-top a:hover {
+  color: #fff;
 }
 
 /* ---------- Contact form ---------- */
@@ -767,7 +802,7 @@ section {
   font-weight: 800;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: rgba(32, 30, 29, 0.04);
+  color: rgba(0, 0, 0, 0.035);
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
@@ -776,7 +811,7 @@ section {
 }
 
 .section-soft .ghost {
-  color: rgba(236, 48, 19, 0.06);
+  color: rgba(0, 0, 0, 0.05);
 }
 
 .ghost-a { --gd: 50; --gs: -0.05; }
@@ -815,7 +850,7 @@ section {
 .float-idx {
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--slate-light);
   letter-spacing: 0.08em;
   padding-top: 10px;
   min-width: 26px;
@@ -823,7 +858,7 @@ section {
 
 .float-ico {
   display: inline-flex;
-  color: var(--accent);
+  color: var(--navy);
   padding-top: 6px;
   flex-shrink: 0;
 }
@@ -851,7 +886,6 @@ section {
 
 .float-row:hover h3 {
   transform: translateX(10px);
-  color: var(--accent);
 }
 
 .float-row:hover p {
@@ -916,5 +950,214 @@ section {
   }
   .ghost {
     font-size: clamp(5rem, 30vw, 12rem);
+  }
+}
+
+/* ---------- PH compliance calendar (standalone page) ---------- */
+.cal-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.cal-hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: #fff;
+  padding: 28px 0 40px;
+}
+
+.cal-hero .brand-logo {
+  filter: invert(1);
+}
+
+.cal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cal-back {
+  color: #cfcccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cal-back:hover {
+  color: #fff;
+}
+
+.cal-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 34px 0 12px;
+}
+
+.cal-hero p {
+  color: #c9c6c6;
+  max-width: 640px;
+}
+
+.cal-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: center;
+  margin: 28px 0 8px;
+}
+
+.cal-toggle {
+  display: inline-flex;
+  gap: 6px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.cal-toggle button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--slate);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: all 0.15s ease;
+}
+
+.cal-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cal-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+.cal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.cal-tag.bir {
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent-dark);
+}
+
+.cal-tag.sec {
+  background: color-mix(in srgb, var(--navy) 12%, transparent);
+  color: var(--navy);
+}
+
+.cal-month {
+  margin-top: 40px;
+}
+
+.cal-month h2 {
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+.cal-row {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 18px;
+  align-items: baseline;
+  padding: 16px 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-date {
+  font-weight: 800;
+  color: var(--navy);
+  font-size: 0.98rem;
+}
+
+.cal-dow {
+  display: block;
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: var(--slate-light);
+}
+
+.cal-body strong {
+  display: block;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.cal-body span {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.cal-weekend {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+.cal-note {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 40px 0;
+}
+
+.cal-note h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.cal-note ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.cal-note li {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  margin-bottom: 6px;
+}
+
+.cal-disclaimer {
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  padding: 16px 20px;
+  margin: 32px 0 60px;
+  font-size: 0.86rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+@media (max-width: 620px) {
+  .cal-row {
+    grid-template-columns: 84px 1fr;
+  }
+  .cal-row .cal-tag {
+    grid-column: 2;
+    justify-self: start;
   }
 }
