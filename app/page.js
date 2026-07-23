@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 
 const EMAIL = "louie@aarkledger.com";
+const CORP_EMAIL = "corporate@aarkledger.com";
+const PHONE = "+63 928 285 7646";
+const PHONE_TEL = "+639282857646";
+const LINKEDIN = "https://www.linkedin.com/company/aarkledger-accounting/";
 const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAABQCAYAAADYzoq3AAAChklEQVR42u3dW27jMAwFUNHI/rfMbqBoHT9J6ZzPATJwHPqKklx7DAAAAAAAAAAWFic/nzf9v0/IBsedD/2OT57PzjXDPzan4NAFXPG4c6w7sCFQBMeC3yuFiUA5UrzpokSYCBR6TA+iWSAKaYFyukCqFlEuEizWTdChCB1THQRK2CrG+Wa7efTOxu136qTgO59hgXO26Vg433Se8kSTkT4FpGOjVqDkYhdjChOBzru7PGFxUJgIlWEN5WAx7L0nJRQ36FCGrU9Ts0WnkQgUBew3oXqg5OJFpEu5fn1HqOhQwJYx537oMzskb++u5Avf+cnjr7R7tedY3IqvQxG0WnTrKQiUFUbDbsGnG1k8UM5elOEPBo36uj+BYmGw5ggbJ/6t0vnWqQBwbsTVigK7c8MuDzCsoQDtAsXiGQAAAAAAAAAAAAAAAAAAADA8noDxyoOx1ZZAaVkw2SRIc7Kgz6aDV4d6ya51snkZU9mLNSd7TYcaWqBOPALS+3WeLODqQalOBIpi8Z2ock4/w/rQ28eYO4slChdsfPmZUCu31otAWTRMfjvWLBgqR4Mhfvm83Z9r6iW9RoOOo/cVoR3CZHiNBuXe/fvGqJQXhZ4wWcBn0QWqMF+mcb2kQAGm3xkz5cHUxe+iQ2GKkVQ4TRbyOhTclNY39KLa8bkPBdSLDgWEXr1u0RpKr6lFpUcAROfCn6xOrKHw50WWDaYDaZphaiZQ6rewnUbzHBZxLZQfSLyc4OlWnZ7YVnF0yi+OsfKdp12f2BYdpsObbUWt7oXH4AFKi3cppjzC5OljsXYy8TkUKG5aeqqYQ5jMv4283fjsCyvfxy+6mCzsQjegiwMAAAAAAABgej8Cgol7BhBInQAAAABJRU5ErkJggg==";
 
 const Check = () => (
@@ -305,8 +309,12 @@ export default function Home() {
                 <textarea name="message" placeholder="What do you need help with?" rows={4} value={form.message} onChange={onField} required />
                 <button type="submit" className="btn btn-accent">Compose email</button>
               </form>
-              <div className="cta-email">
-                Or reach one of our Finance Business Partners directly: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <div className="cta-email">Reach one of our Finance Business Partners directly:</div>
+              <div className="cta-contacts">
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <a href={`mailto:${CORP_EMAIL}`}>{CORP_EMAIL}</a>
+                <a href={`tel:${PHONE_TEL}`}>{PHONE}</a>
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </div>
             </div>
           </div>
@@ -322,6 +330,13 @@ export default function Home() {
                 Bookkeeping, tax, reporting, payroll, and FP&amp;A for clients
                 across the Asia Pacific region.
               </p>
+              <p style={{ marginTop: 12, fontSize: "0.85rem", lineHeight: 1.7 }}>
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <br />
+                <a href={`mailto:${CORP_EMAIL}`}>{CORP_EMAIL}</a>
+                <br />
+                <a href={`tel:${PHONE_TEL}`}>{PHONE}</a>
+              </p>
             </div>
             <div className="footer-links">
               <a href="#services">Services</a>
@@ -329,6 +344,7 @@ export default function Home() {
               <a href="#engagements">Engagements</a>
               <a href="#about">About</a>
               <a href={`mailto:${EMAIL}`}>Contact</a>
+              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
           <div className="footer-bottom">
