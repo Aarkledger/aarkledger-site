@@ -83,9 +83,10 @@ export default function Profile() {
             technical services, and restaurant chain management. He then moved
             into investing and risk, serving as a research associate at a private
             equity firm, a risk analyst at a multinational investment bank, and a
-            compliance specialist at a wealth management bank. He went on to work
-            as a deals team analyst and, later, as a financial accountant at a
-            Fractional CFO firm, where he carried controllership responsibilities
+            compliance specialist at a wealth management bank. He went on to
+            serve as a deals team analyst at a global investment organization
+            and, later, as a financial accountant at a Fractional CFO firm, where
+            he carried controllership responsibilities
             for a portfolio of FMCG and e-commerce clients.
           </p>
           <p style={paraStyle}>
