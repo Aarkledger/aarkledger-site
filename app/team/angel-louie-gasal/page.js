@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Angel Louie Gasal — Finance Business Partner | Aarkledger",
+  title: "Angel Louie Gasal | Finance Business Partner | Aarkledger",
   description:
-    "Angel Louie Gasal is a Finance Business Partner bridging finance and strategy to help start-ups and enterprises make confident, data-driven decisions.",
+    "Angel Louie Gasal is a Finance Business Partner who helps founders and leadership teams run a clean finance function and make better decisions with it.",
 };
 
 const EMAIL = "louie@aarkledger.com";
@@ -72,43 +72,39 @@ export default function Profile() {
         <div style={blockStyle}>
           <h2 style={headingStyle}>Overview</h2>
           <p style={{ color: "var(--text-soft)", marginTop: 10 }}>
-            Angel Louie Gasal is a Finance Business Partner who sits at the
-            intersection of finance and strategy. Rather than reporting from the
-            sidelines, he embeds directly with founders and leadership teams —
-            owning the numbers end to end and translating them into the decisions
-            that actually move a business forward.
+            Angel Louie Gasal is a Finance Business Partner. He works closely with
+            founders and leadership teams, taking ownership of the finance
+            function and helping them use it to make clearer, better-informed
+            decisions.
           </p>
           <p style={paraStyle}>
-            He pairs the discipline of a seasoned accountant with an
-            investor&rsquo;s strategic lens, giving the businesses he works with
-            both a clean, reliable finance function and a partner who can
-            pressure-test the plan behind it.
+            He is practical and hands-on, and prefers to work alongside the people
+            running a business rather than from a distance.
           </p>
         </div>
 
         <div style={blockStyle}>
           <h2 style={headingStyle}>Role &amp; involvement</h2>
           <p style={{ color: "var(--text-soft)", marginTop: 10 }}>
-            His grounding in finance was built across some of its most demanding
-            seats. He started as an analyst in an investment bank, where he lived
-            in financial models, valuations, and transaction analysis under real
-            deadlines and real scrutiny. From there he moved into private equity
-            as a research associate — pressure-testing investment theses, running
-            diligence on prospective targets, and distilling dense financials into
-            clear, decision-ready views. He later served as a compliance
-            specialist at a Zurich-based wealth management bank, where a
-            regulation-first environment sharpened his discipline for how
-            financial information is handled, documented, and reported.
+            Angel Louie started out in accounting as a general ledger accountant
+            at a local advisory firm, keeping the books for clients in real estate
+            management, technical services, and restaurant chain management. He
+            then moved into a research associate role at a private equity firm,
+            followed by work as a risk analyst at a multinational investment bank
+            and a compliance specialist at a wealth management bank. He later
+            served as a deals team analyst, and then as a financial accountant at
+            a Fractional CFO firm, where he handled controllership duties for a
+            range of FMCG and e-commerce clients.
           </p>
           <p style={paraStyle}>
-            He brings that same rigor to his work as a Finance Business Partner.
-            He owns the full-cycle finance function — bookkeeping and
-            reconciliation, monthly and annual reporting, budgets and cash-flow
-            forecasts, tax and statutory compliance, and the accounting and ERP
-            systems that keep it all trustworthy. Rather than working at a
-            distance, he embeds beside founders and leadership as an accountable
-            partner, turning the numbers into the operational and strategic
-            decisions that move a business forward.
+            That background, part accounting and part investing, shapes the way he
+            works today. As a Finance Business Partner, he looks after the full
+            finance function for the businesses he supports: bookkeeping and
+            reconciliation, monthly and annual reporting, budgeting and cash-flow
+            forecasting, tax and statutory compliance, and the accounting and ERP
+            systems that hold it together. He stays close to the people running
+            the company and uses the numbers to help guide decisions, not just to
+            record them.
           </p>
         </div>
 
@@ -116,7 +112,7 @@ export default function Profile() {
           <h3>Contact</h3>
           <div style={{ display: "grid", gap: 10, marginTop: 6 }}>
             <div>
-              <strong style={headingStyle}>Email</strong> —{" "}
+              <strong style={headingStyle}>Email:</strong>{" "}
               <a
                 href={`mailto:${EMAIL}`}
                 style={{ color: "var(--accent-dark)", fontWeight: 600 }}
@@ -125,7 +121,7 @@ export default function Profile() {
               </a>
             </div>
             <div>
-              <strong style={headingStyle}>Phone (PH)</strong> —{" "}
+              <strong style={headingStyle}>Phone (PH):</strong>{" "}
               <a
                 href={`tel:${PHONE_TEL}`}
                 style={{ color: "var(--accent-dark)", fontWeight: 600 }}
@@ -134,7 +130,7 @@ export default function Profile() {
               </a>
             </div>
             <div>
-              <strong style={headingStyle}>LinkedIn</strong> —{" "}
+              <strong style={headingStyle}>LinkedIn:</strong>{" "}
               <a
                 href={LINKEDIN}
                 target="_blank"
