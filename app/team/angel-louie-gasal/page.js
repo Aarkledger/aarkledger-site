@@ -67,22 +67,17 @@ export default function Profile() {
 
       <main className="container" style={{ paddingBottom: 60 }}>
         <div style={blockStyle}>
-          <h2 style={headingStyle}>Overview</h2>
+          <h2 style={headingStyle}>About the Partner</h2>
           <p style={{ color: "var(--text-soft)", marginTop: 10 }}>
-            Angel Louie Gasal is a Finance Business Partner. He works closely with
-            founders and leadership teams, taking ownership of the finance
-            function and helping them use it to make clearer, better-informed
-            decisions.
+            He works closely with founders and leadership teams, taking ownership
+            of the finance function and helping them use it to make clearer,
+            better-informed decisions.
           </p>
           <p style={paraStyle}>
             He is practical and hands-on, and prefers to work alongside the people
             running a business rather than from a distance.
           </p>
-        </div>
-
-        <div style={blockStyle}>
-          <h2 style={headingStyle}>Role &amp; involvement</h2>
-          <p style={{ color: "var(--text-soft)", marginTop: 10 }}>
+          <p style={paraStyle}>
             Angel Louie started out in accounting as a general ledger accountant
             at a local advisory firm, keeping the books for clients in real estate
             management, technical services, and restaurant chain management. He
