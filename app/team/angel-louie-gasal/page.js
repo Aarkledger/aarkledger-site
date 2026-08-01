@@ -1,3 +1,4 @@
+// Finance Business Partner profile page.
 export const metadata = {
   title: "Angel Louie Gasal | Finance Business Partner | Aarkledger",
   description:
