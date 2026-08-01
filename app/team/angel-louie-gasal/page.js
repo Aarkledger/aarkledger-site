@@ -9,35 +9,9 @@ const PHONE = "(63) 928 285 7646";
 const PHONE_TEL = "+639282857646";
 const LINKEDIN = "https://www.linkedin.com/in/angel-louie-gasal/";
 
-const involvement = [
-  "Owns full-cycle finance — bookkeeping oversight, reconciliation, and accurate monthly and annual financial statements.",
-  "Builds and runs FP&A — annual budgets, rolling cash-flow forecasts, and budget-versus-actual variance analysis.",
-  "Coordinates tax and statutory compliance so filings stay organized, accurate, and submitted on time.",
-  "Designs and optimizes accounting and ERP systems, and the data flows that keep them trustworthy.",
-  "Advises leadership on unit economics, margins, runway, and the financial implications of key decisions.",
-  "Serves as a single, accountable point of contact for the finance function.",
-];
-
-const strengths = [
-  "Commercial mindset — he reads past the ledger to the drivers of the business, so the numbers always come with a recommendation.",
-  "Analytical rigor — an investor-grade approach to modeling, forecasting, and scenario planning.",
-  "Clarity — explains complex financial matters in plain language that leaders can act on quickly.",
-  "Ownership — treats every engagement as if the business were his own: defined scope, clean documentation, and on-time delivery.",
-  "Systems thinking — builds finance functions that stay accurate and scale cleanly as a company grows.",
-  "Regional fluency — comfortable with the finance and compliance realities of businesses operating across the Asia Pacific region.",
-];
-
-const listStyle = {
-  listStyle: "disc",
-  paddingLeft: 22,
-  marginTop: 14,
-  display: "flex",
-  flexDirection: "column",
-  gap: 10,
-  color: "var(--text-soft)",
-};
-
-const sectionStyle = { maxWidth: 760, marginTop: 40 };
+const blockStyle = { maxWidth: 760, marginTop: 36 };
+const paraStyle = { color: "var(--text-soft)", marginTop: 14 };
+const headingStyle = { color: "var(--navy)" };
 
 export default function Profile() {
   return (
@@ -94,9 +68,9 @@ export default function Profile() {
         </div>
       </header>
 
-      <main className="container" style={{ paddingBottom: 40 }}>
-        <section style={sectionStyle}>
-          <h2 style={{ color: "var(--navy)" }}>Overview</h2>
+      <main className="container" style={{ paddingBottom: 60 }}>
+        <div style={blockStyle}>
+          <h2 style={headingStyle}>Overview</h2>
           <p style={{ color: "var(--text-soft)", marginTop: 10 }}>
             Angel Louie Gasal is a Finance Business Partner who sits at the
             intersection of finance and strategy. Rather than reporting from the
@@ -104,39 +78,45 @@ export default function Profile() {
             owning the numbers end to end and translating them into the decisions
             that actually move a business forward.
           </p>
-          <p style={{ color: "var(--text-soft)", marginTop: 14 }}>
+          <p style={paraStyle}>
             He pairs the discipline of a seasoned accountant with an
             investor&rsquo;s strategic lens, giving the businesses he works with
             both a clean, reliable finance function and a partner who can
             pressure-test the plan behind it.
           </p>
-        </section>
+        </div>
 
-        <section style={sectionStyle}>
-          <h2 style={{ color: "var(--navy)" }}>Role &amp; involvement</h2>
-          <ul style={listStyle}>
-            {involvement.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section style={sectionStyle}>
-          <h2 style={{ color: "var(--navy)" }}>
-            What makes him a great Finance Business Partner
-          </h2>
-          <ul style={listStyle}>
-            {strengths.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
+        <div style={blockStyle}>
+          <h2 style={headingStyle}>Role &amp; involvement</h2>
+          <p style={{ color: "var(--text-soft)", marginTop: 10 }}>
+            His grounding in finance was built across some of its most demanding
+            seats. He started as an analyst in an investment bank, where he lived
+            in financial models, valuations, and transaction analysis under real
+            deadlines and real scrutiny. From there he moved into private equity
+            as a research associate — pressure-testing investment theses, running
+            diligence on prospective targets, and distilling dense financials into
+            clear, decision-ready views. He later served as a compliance
+            specialist at a Zurich-based wealth management bank, where a
+            regulation-first environment sharpened his discipline for how
+            financial information is handled, documented, and reported.
+          </p>
+          <p style={paraStyle}>
+            He brings that same rigor to his work as a Finance Business Partner.
+            He owns the full-cycle finance function — bookkeeping and
+            reconciliation, monthly and annual reporting, budgets and cash-flow
+            forecasts, tax and statutory compliance, and the accounting and ERP
+            systems that keep it all trustworthy. Rather than working at a
+            distance, he embeds beside founders and leadership as an accountable
+            partner, turning the numbers into the operational and strategic
+            decisions that move a business forward.
+          </p>
+        </div>
 
         <section className="cal-note" style={{ maxWidth: 760 }}>
           <h3>Contact</h3>
           <div style={{ display: "grid", gap: 10, marginTop: 6 }}>
             <div>
-              <strong style={{ color: "var(--navy)" }}>Email</strong> —{" "}
+              <strong style={headingStyle}>Email</strong> —{" "}
               <a
                 href={`mailto:${EMAIL}`}
                 style={{ color: "var(--accent-dark)", fontWeight: 600 }}
@@ -145,7 +125,7 @@ export default function Profile() {
               </a>
             </div>
             <div>
-              <strong style={{ color: "var(--navy)" }}>Phone (PH)</strong> —{" "}
+              <strong style={headingStyle}>Phone (PH)</strong> —{" "}
               <a
                 href={`tel:${PHONE_TEL}`}
                 style={{ color: "var(--accent-dark)", fontWeight: 600 }}
@@ -154,7 +134,7 @@ export default function Profile() {
               </a>
             </div>
             <div>
-              <strong style={{ color: "var(--navy)" }}>LinkedIn</strong> —{" "}
+              <strong style={headingStyle}>LinkedIn</strong> —{" "}
               <a
                 href={LINKEDIN}
                 target="_blank"
