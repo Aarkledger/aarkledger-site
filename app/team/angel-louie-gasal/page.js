@@ -12,6 +12,8 @@ const LINKEDIN = "https://www.linkedin.com/in/angel-louie-gasal/";
 const blockStyle = { maxWidth: 760, marginTop: 36 };
 const paraStyle = { color: "var(--text-soft)", marginTop: 14 };
 const headingStyle = { color: "var(--navy)" };
+const contactLabel = { color: "#c9c6c6" };
+const contactLink = { color: "#fff", fontWeight: 600 };
 
 export default function Profile() {
   return (
@@ -29,40 +31,35 @@ export default function Profile() {
             </a>
             <a href="/" className="cal-back">← Back to main site</a>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 22,
-              marginTop: 34,
-              flexWrap: "wrap",
-            }}
-          >
-            <div
-              aria-hidden="true"
-              style={{
-                width: 88,
-                height: 88,
-                borderRadius: "50%",
-                background: "var(--accent)",
-                color: "#fff",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: 800,
-                fontSize: "1.9rem",
-                letterSpacing: "0.02em",
-                flexShrink: 0,
-                fontFamily: "var(--font-heading)",
-              }}
-            >
-              ALG
-            </div>
-            <div>
-              <h1 style={{ margin: 0 }}>Angel Louie Gasal</h1>
-              <p style={{ margin: "6px 0 0", color: "#c9c6c6", fontSize: "1.1rem" }}>
-                Finance Business Partner
-              </p>
+          <div style={{ marginTop: 34 }}>
+            <h1 style={{ margin: 0 }}>Angel Louie Gasal</h1>
+            <p style={{ margin: "6px 0 0", color: "#c9c6c6", fontSize: "1.1rem" }}>
+              Finance Business Partner
+            </p>
+            <div style={{ display: "grid", gap: 6, marginTop: 20, fontSize: "0.98rem" }}>
+              <div>
+                <span style={contactLabel}>Email:</span>{" "}
+                <a href={`mailto:${EMAIL}`} style={contactLink}>
+                  {EMAIL}
+                </a>
+              </div>
+              <div>
+                <span style={contactLabel}>Phone (PH):</span>{" "}
+                <a href={`tel:${PHONE_TEL}`} style={contactLink}>
+                  {PHONE}
+                </a>
+              </div>
+              <div>
+                <span style={contactLabel}>LinkedIn:</span>{" "}
+                <a
+                  href={LINKEDIN}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={contactLink}
+                >
+                  linkedin.com/in/angel-louie-gasal
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -107,41 +104,6 @@ export default function Profile() {
             record them.
           </p>
         </div>
-
-        <section className="cal-note" style={{ maxWidth: 760 }}>
-          <h3>Contact</h3>
-          <div style={{ display: "grid", gap: 10, marginTop: 6 }}>
-            <div>
-              <strong style={headingStyle}>Email:</strong>{" "}
-              <a
-                href={`mailto:${EMAIL}`}
-                style={{ color: "var(--accent-dark)", fontWeight: 600 }}
-              >
-                {EMAIL}
-              </a>
-            </div>
-            <div>
-              <strong style={headingStyle}>Phone (PH):</strong>{" "}
-              <a
-                href={`tel:${PHONE_TEL}`}
-                style={{ color: "var(--accent-dark)", fontWeight: 600 }}
-              >
-                {PHONE}
-              </a>
-            </div>
-            <div>
-              <strong style={headingStyle}>LinkedIn:</strong>{" "}
-              <a
-                href={LINKEDIN}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--accent-dark)", fontWeight: 600 }}
-              >
-                linkedin.com/in/angel-louie-gasal
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );
