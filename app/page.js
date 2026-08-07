@@ -163,7 +163,7 @@ export default function Home() {
             <a href="#pricing">Packages</a>
             <a href="#engagements">Engagements</a>
             <a href="#about">About</a>
-            <a href="/deadlines">Tax Calendar</a>
+            <a href="/deadlines" className="nav-cal">Tax Calendar</a>
           </nav>
         </div>
       </header>
@@ -173,7 +173,7 @@ export default function Home() {
         <section className="hero" style={{ padding: 0 }}>
           <div className="container">
             <div className="hero-inner">
-              <span className="eyebrow">Financial Consultancy Firm · Asia Pacific</span>
+              <span className="eyebrow">Financial Consultancy Firm · ERP Migration and Financial Systems Engineering</span>
               <h1>Finance built for start-ups and enterprises with complex data ecosystems.</h1>
               <p>
                 Aarkledger is a boutique financial consultancy firm for start-ups
@@ -181,14 +181,6 @@ export default function Home() {
                 bringing structure to bookkeeping, reporting, payroll, and FP&amp;A
                 for clients across the Asia Pacific region.
               </p>
-              <div className="hero-actions">
-                <a href="#pricing" className="btn btn-ghost" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.3)" }}>View packages</a>
-                <a href="/deadlines" className="btn btn-accent">PH Compliance Calendar</a>
-              </div>
-              <div className="hero-meta">
-                <div><strong>Asia Pacific</strong><span>Serving clients across the region</span></div>
-                <div><strong>End-to-end</strong><span>Books to board reporting</span></div>
-              </div>
             </div>
           </div>
         </section>
