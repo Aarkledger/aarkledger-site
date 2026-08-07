@@ -173,7 +173,7 @@ export default function Home() {
         <section className="hero" style={{ padding: 0 }}>
           <div className="container">
             <div className="hero-inner">
-              <span className="eyebrow">Financial Consultancy Firm · ERP Migration and Financial Systems Engineering</span>
+              <span className="eyebrow">Financial Consultancy Firm · ERP Solutions Advisory</span>
               <h1>Finance built for start-ups and enterprises with complex data ecosystems.</h1>
               <p>
                 Aarkledger is a boutique financial consultancy firm for start-ups
@@ -181,6 +181,9 @@ export default function Home() {
                 bringing structure to bookkeeping, reporting, payroll, and FP&amp;A
                 for clients across the Asia Pacific region.
               </p>
+              <div className="hero-meta">
+                <div><strong>Expertise in multiple ERPs</strong><span>SAP S/4HANA, Oracle NetSuite, Microsoft Dynamics 365</span></div>
+              </div>
             </div>
           </div>
         </section>
