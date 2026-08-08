@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Archivo } from "next/font/google";
+import ChatWidget from "./ChatWidget";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -48,7 +49,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={archivo.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }
