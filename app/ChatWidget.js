@@ -60,7 +60,7 @@ const KB = [
   {
     keys: ["hello", "hi", "hey", "good morning", "good afternoon", "good evening"],
     answer:
-      "Hello, I am the Aarkledger assistant. I can help with our services, packages, ERP solutions, tax deadlines, or putting you in touch with a Finance Business Partner.",
+      "Hello, I am AarkMessenger. I can help with our services, packages, ERP solutions, tax deadlines, or putting you in touch with a Finance Business Partner.",
   },
   {
     keys: ["thank", "thanks", "appreciate"],
@@ -141,7 +141,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState([
     {
       from: "bot",
-      text: "Hi, I am the Aarkledger assistant. How can I help you today? You can ask about our services, packages, ERP solutions, or tax deadlines.",
+      text: "Hi, I am AarkMessenger. How can I help you today? You can ask about our services, packages, ERP solutions, or tax deadlines.",
     },
   ]);
   const endRef = useRef(null);
@@ -173,10 +173,10 @@ export default function ChatWidget() {
       <style>{CSS}</style>
 
       {open && (
-        <div className="alk-chat-panel" role="dialog" aria-label="Aarkledger assistant">
+        <div className="alk-chat-panel" role="dialog" aria-label="AarkMessenger">
           <div className="alk-chat-head">
             <div>
-              <div className="alk-chat-title">Aarkledger Assistant</div>
+              <div className="alk-chat-title">AarkMessenger</div>
               <div className="alk-chat-sub">Here to help with your finance questions</div>
             </div>
             <button className="alk-chat-x" onClick={() => setOpen(false)} aria-label="Close chat">
