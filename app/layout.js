@@ -13,11 +13,11 @@ export const metadata = {
   metadataBase: new URL("https://aarkledger.com"),
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/site-icon", type: "image/png", sizes: "64x64" },
+      { url: "/favicon.ico?v=3", sizes: "any" },
+      { url: "/site-icon?v=3", type: "image/png", sizes: "64x64" },
     ],
-    shortcut: "/favicon.ico",
-    apple: { url: "/site-icon", type: "image/png" },
+    shortcut: "/favicon.ico?v=3",
+    apple: { url: "/site-icon?v=3", type: "image/png" },
   },
   title: "Aarkledger — Financial Consultancy | Bookkeeping, Tax & FP&A",
   description:
