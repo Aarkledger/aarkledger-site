@@ -163,7 +163,7 @@ export default function Home() {
             <a href="#pricing">Packages</a>
             <a href="#engagements">Engagements</a>
             <a href="#about">About</a>
-            <a href="/deadlines" className="nav-cal">Tax Calendar</a>
+            <a href="/deadlines">Tax Calendar</a>
           </nav>
         </div>
       </header>
@@ -188,9 +188,34 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About */}
+        <section id="about" className="section-soft float-section">
+          <div className="container about-wrap">
+            <div>
+              <h2>The consultancy firm built for start-ups and enterprises with complex data ecosystems</h2>
+              <p>
+                Aarkledger is a boutique financial consultancy firm for start-ups
+                and enterprises with complex business models and data ecosystems.
+                We bring structure to bookkeeping, reporting, payroll, and FP&amp;A
+                — without the overhead of an in-house finance team.
+              </p>
+              <p>
+                We work on a clear, contractual basis: every engagement is defined by a
+                signed engagement letter that sets out scope, deliverables, and
+                timelines, so you always know exactly what you are getting.
+              </p>
+            </div>
+            <div className="stats">
+              <div className="stat float" style={{ "--d": 1 }}><strong>Established in 2015</strong><span>A decade of accounting and finance expertise</span></div>
+              <div className="stat float" style={{ "--d": 2 }}><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
+              <div className="stat float" style={{ "--d": 3 }}><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
+              <div className="stat float" style={{ "--d": 2 }}><strong>Asia Pacific reach</strong><span>Serving start-ups and enterprises across the Asia Pacific region</span></div>
+            </div>
+          </div>
+        </section>
+
         {/* Services */}
         <section id="services" className="float-section">
-          <span className="ghost ghost-a" aria-hidden="true">finance</span>
           <div className="container">
             <div className="section-head left">
               <span className="eyebrow">What we do</span>
@@ -214,7 +239,6 @@ export default function Home() {
 
         {/* Packages */}
         <section id="pricing" className="section-soft float-section">
-          <span className="ghost ghost-b" aria-hidden="true">packages</span>
           <div className="container">
             <div className="section-head left">
               <span className="eyebrow">Monthly retainers</span>
@@ -244,7 +268,6 @@ export default function Home() {
 
         {/* Engagements */}
         <section id="engagements" className="float-section">
-          <span className="ghost ghost-a" aria-hidden="true">engage</span>
           <div className="container">
             <div className="section-head left">
               <span className="eyebrow">Project & à la carte</span>
@@ -262,33 +285,6 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-          </div>
-        </section>
-
-        {/* About */}
-        <section id="about" className="section-soft float-section">
-          <span className="ghost ghost-c" aria-hidden="true">since 2015</span>
-          <div className="container about-wrap">
-            <div>
-              <h2>The consultancy firm built for start-ups and enterprises with complex data ecosystems</h2>
-              <p>
-                Aarkledger is a boutique financial consultancy firm for start-ups
-                and enterprises with complex business models and data ecosystems.
-                We bring structure to bookkeeping, reporting, payroll, and FP&amp;A
-                — without the overhead of an in-house finance team.
-              </p>
-              <p>
-                We work on a clear, contractual basis: every engagement is defined by a
-                signed engagement letter that sets out scope, deliverables, and
-                timelines, so you always know exactly what you are getting.
-              </p>
-            </div>
-            <div className="stats">
-              <div className="stat float" style={{ "--d": 1 }}><strong>Established in 2015</strong><span>A decade of accounting and finance expertise</span></div>
-              <div className="stat float" style={{ "--d": 2 }}><strong>Built for start-ups</strong><span>Systems architecture and data integrations for complex business models</span></div>
-              <div className="stat float" style={{ "--d": 3 }}><strong>IB + PE expertise</strong><span>Led by finance professionals with investment banking and private equity experience</span></div>
-              <div className="stat float" style={{ "--d": 2 }}><strong>Asia Pacific reach</strong><span>Serving start-ups and enterprises across the Asia Pacific region</span></div>
-            </div>
           </div>
         </section>
 
