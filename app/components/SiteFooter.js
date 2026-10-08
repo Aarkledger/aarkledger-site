@@ -27,7 +27,6 @@ export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel,
           <nav className="ak-footer-col" aria-label="Resources">
             <span className="ak-footer-h">Resources</span>
             <a href="/deadlines">Tax Calendar</a>
-            <a href="/team/angel-louie-gasal">Meet our Finance Business Partner</a>
           </nav>
           <div className="ak-footer-col">
             <span className="ak-footer-h">Contact</span>

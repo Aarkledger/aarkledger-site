@@ -20,7 +20,7 @@ import GraticuleGlobe from "./components/GraticuleGlobe";
 import ErpConsole from "./components/ErpConsole";
 import RhythmDial from "./components/RhythmDial";
 import ScopeMeter from "./components/ScopeMeter";
-import { ArrowDown, ArrowRight, Check, Plus } from "./components/icons";
+import { ArrowDown, ArrowRight, Check, FN_ICONS, Plus } from "./components/icons";
 import { onProgress, prefersReducedMotion, useStoryEngine } from "./components/useStoryEngine";
 
 /* ------------------------------------------------------------------ */
@@ -171,22 +171,48 @@ const PROJECTS = [
 
 const INTERESTS = ["Standard", "Growth", "Enterprise", "A single project", "Not sure yet"];
 
-const CAREER = [
+const PARTNERS = [
   {
-    head: "Accounting & control",
-    rows: [
-      "General ledger accountant, local advisory firm",
-      "Financial accountant with controllership responsibilities, Fractional CFO firm",
-    ],
+    code: "P-01",
+    icon: "fpa",
+    role: "Finance Business Partners",
+    remit: "Integrate financial management with your day-to-day operations: month-end close, management reporting, budgets and cash-flow forecasts, run alongside your leadership team.",
+    covers: "Accounting · FP&A · Reporting",
   },
   {
-    head: "Investing & risk",
-    rows: [
-      "Research associate, private equity firm",
-      "Risk analyst, multinational investment bank",
-      "Compliance specialist, wealth management bank",
-      "Deals team analyst, global investment organization",
-    ],
+    code: "P-02",
+    icon: "tax",
+    role: "Strategic Tax Partners",
+    remit: "Keep compliance in step with your financial strategy: income tax and VAT, GST or sales tax planned, prepared and filed on time.",
+    covers: "Income tax · Indirect tax · Filings",
+  },
+  {
+    code: "P-03",
+    icon: "legal",
+    role: "Management Advisory Partners",
+    remit: "Governance and corporate structure: entity formation and set-up, board and shareholder reporting, and the policies and controls that hold it together.",
+    covers: "Governance · Structure · Controls",
+  },
+  {
+    code: "P-04",
+    icon: "erp",
+    role: "ERP Advisory Partners",
+    remit: "SAP S/4HANA, Oracle NetSuite and Microsoft Dynamics 365 Business Central: implementation, migration, training, health checks and ongoing maintenance.",
+    covers: "Implement · Migrate · Maintain",
+  },
+  {
+    code: "P-05",
+    icon: "data",
+    role: "Data & Reporting Partners",
+    remit: "Data management across your systems: clean master data, integrations between tools, and reporting that ties back to the ledger.",
+    covers: "Data · Integrations · Dashboards",
+  },
+  {
+    code: "P-06",
+    icon: "pay",
+    role: "Specialist Partners",
+    remit: "Brought in as your scope needs them: payroll and statutory remittances, audit preparation, and one-off projects.",
+    covers: "Payroll · Audit prep · Projects",
   },
 ];
 
@@ -473,35 +499,34 @@ export default function Home() {
               ))}
             </dl>
 
-            <article className="ak-partner" data-reveal="">
-              <span className="ak-eyebrow ak-eyebrow--plain">Who you&apos;ll work with</span>
-              <h3 className="ak-partner-name">Angel Louie Gasal</h3>
-              <p className="ak-partner-role">Finance Business Partner</p>
-              <p className="ak-partner-body">
-                An embedded member of the team rather than a distant advisor, with a career built on both sides of the
-                ledger.
-              </p>
-              <div className="ak-ledger">
-                {CAREER.map((c) => (
-                  <div className="ak-ledger-col" key={c.head}>
-                    <span className="ak-ledger-h">{c.head}</span>
-                    <ol>
-                      {c.rows.map((r, i) => (
-                        <li key={r}>
-                          <span className="ak-mono" aria-hidden="true">
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                          {r}
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-                ))}
+<div className="ak-roster">
+              <div className="ak-roster-head" data-reveal="">
+                <span className="ak-eyebrow ak-eyebrow--plain">Who you&apos;ll work with</span>
+                <h3 className="ak-roster-title">Partners for every part of the function.</h3>
+                <p className="ak-roster-body">
+                  No single advisor carries your whole finance function. Each engagement is staffed with the partners
+                  your work needs, coordinated as one team under one signed contract.
+                </p>
               </div>
-              <div className="ak-double ak-double--full ak-double--dark" aria-hidden="true" />
-              <p className="ak-partner-bal">Balanced: accounting discipline and investing judgment.</p>
-              <TextLink href="/team/angel-louie-gasal">Read the full profile</TextLink>
-            </article>
+              <ul className="ak-roster-grid">
+                {PARTNERS.map((p, i) => (
+                  <li className="ak-pcard" key={p.code} data-reveal="" style={{ "--i": i % 3 }}>
+                    <div className="ak-pcard-top">
+                      <span className="ak-pcard-code">{p.code}</span>
+                      <span className="ak-pcard-ic" aria-hidden="true">
+                        {FN_ICONS[p.icon]}
+                      </span>
+                    </div>
+                    <h4 className="ak-pcard-role">{p.role}</h4>
+                    <p className="ak-pcard-remit">{p.remit}</p>
+                    <p className="ak-pcard-covers">
+                      <span className="ak-sr">Covers: </span>
+                      {p.covers}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="ak-close">
               <TextLink href="#expertise">See where we&apos;re strongest</TextLink>
@@ -772,8 +797,8 @@ export default function Home() {
                 <span className="ak-double ak-double--hero" data-reveal="double" aria-hidden="true" />
               </div>
               <p className="ak-lead" data-reveal="">
-                Share what you&apos;ve already tried and what still isn&apos;t working. Your message goes straight to a
-                Finance Business Partner, and you&apos;ll get an honest view of whether we&apos;re the right fit. No
+                Share what you&apos;ve already tried and what still isn&apos;t working. Your message goes straight to our
+                partners, and you&apos;ll get an honest view of whether we&apos;re the right fit. No
                 obligation, and no pitch deck.
               </p>
             </div>
@@ -875,21 +900,18 @@ export default function Home() {
                   <span className="ak-label">What happens next</span>
                   <ol className="ak-next-list">
                     <li>You send the email.</li>
-                    <li>A Finance Business Partner replies to arrange a first conversation.</li>
+                    <li>A partner replies to arrange a first conversation.</li>
                     <li>If we&apos;re a fit, you get a defined scope and a signed contract before any work starts.</li>
                   </ol>
                 </div>
                 <div className="ak-contacts">
                   <div className="ak-cgroup">
-                    <span className="ak-label">Finance Business Partner</span>
+                    <span className="ak-label">Talk to a partner</span>
                     <a href={`mailto:${EMAIL}`} className="ak-crow">
                       {EMAIL}
                     </a>
                     <a href={`tel:${PHONE_TEL}`} className="ak-crow">
                       {PHONE}
-                    </a>
-                    <a href="/team/angel-louie-gasal" className="ak-crow">
-                      Meet Angel Louie Gasal <ArrowRight size={15} />
                     </a>
                   </div>
                   <div className="ak-cgroup">
