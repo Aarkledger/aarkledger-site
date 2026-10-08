@@ -399,9 +399,6 @@ export default function Home() {
                   you.
                 </p>
                 <div className="ak-ctas" data-reveal="" style={{ "--i": 4 }}>
-                  <a href="#contact" className="ak-btn">
-                    Talk to an operator <ArrowRight size={16} />
-                  </a>
                   <TextLink href="#shift" down>
                     Why it keeps happening
                   </TextLink>
