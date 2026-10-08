@@ -5,8 +5,8 @@ import { onProgress } from "./useStoryEngine";
 
 const D = [0, -3, 2, -4, 1, 3, -2, 4, -1, 2, -3];
 
-const DESKTOP = { W: 1200, H: 300, x0: 60, step: 95, base: 260, op: 120, peak: 90, fs: 13, end: 1170, dScale: 1, yLabelX: 24 };
-const MOBILE = { W: 600, H: 400, x0: 44, step: 46, base: 336, op: 170, peak: 128, fs: 17, end: 584, dScale: 1.4, yLabelX: 16 };
+const DESKTOP = { W: 1200, H: 300, x0: 60, step: 95, base: 260, op: 120, peak: 90, fs: 14, end: 1170, dScale: 1, yLabelX: 24 };
+const MOBILE = { W: 600, H: 400, x0: 44, step: 46, base: 336, op: 170, peak: 128, fs: 18, end: 584, dScale: 1.4, yLabelX: 16 };
 
 function Chart({ g, idp, variant }) {
   const X = (u) => +(g.x0 + u * g.step).toFixed(1);

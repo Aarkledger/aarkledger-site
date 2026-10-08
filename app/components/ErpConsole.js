@@ -14,7 +14,7 @@ export const CONSOLE_TABS = [
 const SOURCES = ["Bank feeds", "Sales & billing", "Payroll", "Spreadsheets", "Legacy ledger"];
 const OUTPUTS = ["Financial statements", "Tax filings", "Management reports", "Cash-flow forecast", "Audit schedules"];
 const DEFAULT_STEPS = ["Implement", "Configure", "Migrate", "Train", "Health check", "Maintain"];
-const MOBILE_MQ = "(max-width: 1023px)";
+const MOBILE_MQ = "(max-width: 1199px)";
 
 /* ---------- desktop geometry (viewBox 0 0 1100 380) ---------- */
 const PILL_W = 170;
