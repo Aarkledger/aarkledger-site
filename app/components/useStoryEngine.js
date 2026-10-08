@@ -185,7 +185,7 @@ export function useStoryEngine() {
         (entries) => {
           for (const e of entries) {
             if (e.isIntersecting) {
-              e.target.classList.add("is-in");
+              e.target.setAttribute("data-in", "");
               revealIO.unobserve(e.target);
             }
           }
@@ -195,7 +195,7 @@ export function useStoryEngine() {
       revealEls.forEach((el) => revealIO.observe(el));
       cleanups.push(() => revealIO.disconnect());
     } else {
-      revealEls.forEach((el) => el.classList.add("is-in"));
+      revealEls.forEach((el) => el.setAttribute("data-in", ""));
     }
 
     /* 3. Scroll progress */
