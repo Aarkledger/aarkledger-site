@@ -2285,7 +2285,13 @@ html.ak-motion .ak-bus-pulse {
 
 @media (max-width: 959px) {
   .ak-globe-box {
-    width: 240px;
+    width: min(100%, 320px);
+  }
+}
+
+@media (max-width: 599px) {
+  .ak-globe-box {
+    width: min(100%, 280px);
   }
 }
 
