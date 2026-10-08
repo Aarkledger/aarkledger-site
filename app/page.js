@@ -176,43 +176,43 @@ const PARTNERS = [
     code: "P-01",
     icon: "fpa",
     role: "Finance Business Partners",
-    remit: "Integrate financial management with your day-to-day operations: month-end close, management reporting, budgets and cash-flow forecasts, run alongside your leadership team.",
-    covers: "Accounting · FP&A · Reporting",
+    remit: "Integrate financial management with your day-to-day operations, running the month-end close, management reporting, budgets and cash-flow forecasts alongside your leadership team.",
+    covers: ["Accounting", "FP&A", "Reporting"],
   },
   {
     code: "P-02",
     icon: "tax",
     role: "Strategic Tax Partners",
     remit: "Keep compliance in step with your financial strategy: income tax and VAT, GST or sales tax planned, prepared and filed on time.",
-    covers: "Income tax · Indirect tax · Filings",
+    covers: ["Income tax", "Indirect tax", "Filings"],
   },
   {
     code: "P-03",
     icon: "legal",
     role: "Management Advisory Partners",
-    remit: "Governance and corporate structure: entity formation and set-up, board and shareholder reporting, and the policies and controls that hold it together.",
-    covers: "Governance · Structure · Controls",
+    remit: "Governance and corporate structure: entity formation and registration, board and shareholder reporting, and the statutory filings that keep your company in good standing, coordinated with your legal counsel where a lawyer is required.",
+    covers: ["Governance", "Structure", "Compliance"],
   },
   {
     code: "P-04",
     icon: "erp",
     role: "ERP Advisory Partners",
     remit: "SAP S/4HANA, Oracle NetSuite and Microsoft Dynamics 365 Business Central: implementation, migration, training, health checks and ongoing maintenance.",
-    covers: "Implement · Migrate · Maintain",
+    covers: ["Implement", "Migrate", "Maintain"],
   },
   {
     code: "P-05",
     icon: "data",
     role: "Data & Reporting Partners",
-    remit: "Data management across your systems: clean master data, integrations between tools, and reporting that ties back to the ledger.",
-    covers: "Data · Integrations · Dashboards",
+    remit: "Data management across your systems: clean master data, a consistent chart of accounts and cross-system reconciliation, so every report ties back to the ledger.",
+    covers: ["Master data", "Chart of accounts"],
   },
   {
     code: "P-06",
     icon: "pay",
     role: "Specialist Partners",
     remit: "Brought in as your scope needs them: payroll and statutory remittances, audit preparation, and one-off projects.",
-    covers: "Payroll · Audit prep · Projects",
+    covers: ["Payroll", "Audit prep", "Projects"],
   },
 ];
 
@@ -499,20 +499,22 @@ export default function Home() {
               ))}
             </dl>
 
-<div className="ak-roster">
+            <div className="ak-roster">
               <div className="ak-roster-head" data-reveal="">
                 <span className="ak-eyebrow ak-eyebrow--plain">Who you&apos;ll work with</span>
                 <h3 className="ak-roster-title">Partners for every part of the function.</h3>
                 <p className="ak-roster-body">
-                  No single advisor carries your whole finance function. Each engagement is staffed with the partners
+                  No single person carries your whole finance function. Each engagement is staffed with the partners
                   your work needs, coordinated as one team under one signed contract.
                 </p>
               </div>
               <ul className="ak-roster-grid">
-                {PARTNERS.map((p, i) => (
-                  <li className="ak-pcard" key={p.code} data-reveal="" style={{ "--i": i % 3 }}>
+                {PARTNERS.map((p) => (
+                  <li className="ak-pcard" key={p.code} data-reveal="">
                     <div className="ak-pcard-top">
-                      <span className="ak-pcard-code">{p.code}</span>
+                      <span className="ak-pcard-code" aria-hidden="true">
+                        {p.code}
+                      </span>
                       <span className="ak-pcard-ic" aria-hidden="true">
                         {FN_ICONS[p.icon]}
                       </span>
@@ -520,8 +522,12 @@ export default function Home() {
                     <h4 className="ak-pcard-role">{p.role}</h4>
                     <p className="ak-pcard-remit">{p.remit}</p>
                     <p className="ak-pcard-covers">
-                      <span className="ak-sr">Covers: </span>
-                      {p.covers}
+                      <span className="ak-sr">Covers: {p.covers.join(", ")}</span>
+                      {p.covers.map((c) => (
+                        <span key={c} aria-hidden="true">
+                          {c}
+                        </span>
+                      ))}
                     </p>
                   </li>
                 ))}

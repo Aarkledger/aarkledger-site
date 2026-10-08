@@ -361,8 +361,7 @@ section[id] {
   transform-origin: left;
 }
 
-.ak-dark .ak-double,
-.ak-double--dark {
+.ak-dark .ak-double {
   border-color: var(--green-light);
 }
 
@@ -2100,6 +2099,7 @@ html.ak-motion .ak-bus-pulse {
 }
 
 .ak-roster-title {
+  text-wrap: balance;
   font-size: clamp(1.5rem, 2.6vw, 2.2rem);
   line-height: 1.12;
   color: var(--on-dark);
@@ -2147,16 +2147,6 @@ html.ak-motion .ak-bus-pulse {
   transition: transform var(--t-draw) var(--ease);
 }
 
-.ak-pcard:hover,
-.ak-pcard:focus-within {
-  border-color: rgba(74, 156, 48, 0.55);
-  background: color-mix(in srgb, var(--charcoal) 88%, var(--green) 12%);
-}
-
-.ak-pcard:hover::before,
-.ak-pcard:focus-within::before {
-  transform: scaleX(1);
-}
 
 .ak-pcard-top {
   display: flex;
@@ -2190,10 +2180,19 @@ html.ak-motion .ak-bus-pulse {
   height: 20px;
 }
 
-.ak-pcard:hover .ak-pcard-ic,
-.ak-pcard:focus-within .ak-pcard-ic {
-  color: var(--signal);
-  border-color: rgba(107, 193, 69, 0.5);
+/* hover only where a real pointer can hover, so taps don't leave it stuck */
+@media (hover: hover) {
+  .ak-pcard:hover {
+    border-color: rgba(74, 156, 48, 0.55);
+    background: color-mix(in srgb, var(--charcoal) 88%, var(--green) 12%);
+  }
+  .ak-pcard:hover::before {
+    transform: scaleX(1);
+  }
+  .ak-pcard:hover .ak-pcard-ic {
+    color: var(--signal);
+    border-color: rgba(107, 193, 69, 0.5);
+  }
 }
 
 .ak-pcard-role {
@@ -2215,6 +2214,9 @@ html.ak-motion .ak-bus-pulse {
 }
 
 .ak-pcard-covers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -2225,18 +2227,39 @@ html.ak-motion .ak-bus-pulse {
   border-top: 1px solid var(--hair-dark);
 }
 
-@media (max-width: 1023px) {
+.ak-pcard-covers > span[aria-hidden] {
+  white-space: nowrap;
+}
+
+/* reveal stagger follows the column count */
+.ak-pcard:nth-child(3n + 2) {
+  --i: 1;
+}
+
+.ak-pcard:nth-child(3n) {
+  --i: 2;
+}
+
+@media (max-width: 1099px) {
   .ak-roster-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .ak-pcard:nth-child(odd) {
+    --i: 0;
+  }
+  .ak-pcard:nth-child(even) {
+    --i: 1;
+  }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 759px) {
   .ak-roster-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  .ak-pcard {
+  .ak-pcard,
+  .ak-pcard:nth-child(n) {
+    --i: 0;
     padding: 20px 18px 18px;
   }
 }
@@ -3829,6 +3852,12 @@ html.ak-motion .ak-pkg[data-reveal=""] {
   transition: opacity var(--t-in) var(--ease) calc(min(var(--i, 0), 6) * 70ms),
     transform var(--t-in) var(--ease) calc(min(var(--i, 0), 6) * 70ms), translate var(--t-fast) var(--ease),
     border-color var(--t-fast);
+}
+
+html.ak-motion .ak-pcard[data-reveal=""] {
+  transition: opacity var(--t-in) var(--ease) calc(min(var(--i, 0), 6) * 70ms),
+    transform var(--t-in) var(--ease) calc(min(var(--i, 0), 6) * 70ms), border-color var(--t-ui) var(--ease),
+    background var(--t-ui) var(--ease);
 }
 
 html.ak-motion [data-reveal=""][data-in] {
