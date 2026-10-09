@@ -1,6 +1,6 @@
 "use client";
 
-export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel, linkedin, onQuickView, basePath = "" }) {
+export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel, linkedin, basePath = "" }) {
   // basePath lets the in-page story links work from other routes (e.g. "/" on /privacy -> "/#problem").
   const h = (id) => `${basePath}#${id}`;
   return (
@@ -28,16 +28,6 @@ export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel,
           </nav>
           <nav className="ak-footer-col" aria-label="Resources">
             <span className="ak-footer-h">Resources</span>
-            {onQuickView && (
-              <button
-                type="button"
-                className="ak-qv-trigger"
-                data-qv-trigger=""
-                onClick={(e) => onQuickView(e.currentTarget)}
-              >
-                Quick view
-              </button>
-            )}
             <a href="/deadlines">Tax Calendar</a>
             <a href="/privacy">Privacy Notice</a>
             <a href="/privacy#request">Request data deletion</a>

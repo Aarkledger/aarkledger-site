@@ -181,7 +181,8 @@ export default function PrivacyPage() {
               <h2 id="h-not-collected">What this website does not collect</h2>
               <ul className="ak-legal-checks">
                 <li>
-                  <strong>No cookies.</strong> The website sets none.
+                  <strong>No cookies or browser storage.</strong> The website sets no cookies and stores nothing on
+                  your device, in local storage or anywhere else.
                 </li>
                 <li>
                   <strong>No analytics, advertising or tracking.</strong> There are no tracking pixels, tag managers,
@@ -226,13 +227,6 @@ export default function PrivacyPage() {
                 hosting provider processes basic technical data to deliver and protect the site: your IP address, your
                 browser and device type (user agent), the page you asked for, the referring page and the time. We
                 don&apos;t use this data to identify you or build a profile.
-              </p>
-              <h3>One optional preference, kept only on your device.</h3>
-              <p>
-                The quick view pop-up has a &ldquo;Don&apos;t show this quick view again&rdquo; box. If you tick it,
-                your browser stores that one setting in its local storage so the pop-up stays closed on later visits. It
-                is never sent to us. If you don&apos;t tick it, nothing is stored. You can clear it at any time by
-                clearing this site&apos;s data in your browser settings.
               </p>
             </section>
 
