@@ -11,7 +11,6 @@ const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAABQCAYAAADY
 import { useCallback, useRef } from "react";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
-import QuickView from "./components/QuickView";
 import EntropyField from "./components/EntropyField";
 import IssueRegister from "./components/IssueRegister";
 import LifecycleChart from "./components/LifecycleChart";
@@ -338,14 +337,6 @@ export default function Home() {
     if (nameRef.current) nameRef.current.focus({ preventScroll: true });
   }, []);
 
-  const [qvOpen, setQvOpen] = useState(false);
-  const qvReturnRef = useRef(null);
-  const openQuickView = useCallback((el) => {
-    qvReturnRef.current = el || null;
-    setQvOpen(true);
-  }, []);
-  const closeQuickView = useCallback(() => setQvOpen(false), []);
-
   const selectInterest = useCallback(
     (interest, opts = {}) => {
       setForm((f) => ({
@@ -384,7 +375,7 @@ export default function Home() {
 
   return (
     <>
-      <SiteHeader logoSrc={LOGO_SRC} email={EMAIL} phone={PHONE} phoneTel={PHONE_TEL} onQuickView={openQuickView} />
+      <SiteHeader logoSrc={LOGO_SRC} email={EMAIL} phone={PHONE} phoneTel={PHONE_TEL} />
 
       <main id="top">
         {/* ============================ 01 PROBLEM ============================ */}
@@ -964,23 +955,6 @@ export default function Home() {
         phone={PHONE}
         phoneTel={PHONE_TEL}
         linkedin={LINKEDIN}
-        onQuickView={openQuickView}
-      />
-
-      <QuickView
-        open={qvOpen}
-        onOpen={openQuickView}
-        onClose={closeQuickView}
-        returnFocusRef={qvReturnRef}
-        onEnquire={goContact}
-        logoSrc={LOGO_SRC}
-        email={EMAIL}
-        phone={PHONE}
-        phoneTel={PHONE_TEL}
-        packages={PACKAGES}
-        erps={ERPS}
-        also={ALSO}
-        privacyHref="/privacy"
       />
     </>
   );
