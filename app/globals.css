@@ -1041,13 +1041,9 @@ html[data-head-surface="light"] .ak-header {
   }
   .ak-hero-visual {
     grid-column: 8 / 13;
-    grid-row: 1 / 3;
+    grid-row: 1;
     align-self: center;
     margin-top: 0;
-  }
-  .ak-proofline {
-    grid-column: 1 / 8;
-    grid-row: 2;
   }
 }
 
@@ -1057,37 +1053,6 @@ html[data-head-surface="light"] .ak-header {
   align-items: center;
   gap: 12px 28px;
   margin-top: 32px;
-}
-
-.ak-proofline {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin-top: 40px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--on-dark-soft);
-  gap: 10px 28px;
-  align-self: start;
-  align-items: center;
-}
-
-/* Each item carries its own marker, so a wrapped line never starts with a
-   stray divider. */
-.ak-proofline li {
-  border-left: 2px solid var(--green-light);
-  padding: 1px 0 1px 12px;
-}
-
-@media (max-width: 640px) {
-  .ak-proofline {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
 }
 
 .ak-scrollcue {
@@ -2320,7 +2285,13 @@ html.ak-motion .ak-bus-pulse {
 
 @media (max-width: 959px) {
   .ak-globe-box {
-    width: 240px;
+    width: min(100%, 320px);
+  }
+}
+
+@media (max-width: 599px) {
+  .ak-globe-box {
+    width: min(100%, 280px);
   }
 }
 

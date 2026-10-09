@@ -407,11 +407,6 @@ export default function Home() {
               <div className="ak-hero-visual" data-reveal="" style={{ "--i": 3 }}>
                 <IssueRegister issues={ISSUES} />
               </div>
-              <ul className="ak-proofline" data-reveal="" style={{ "--i": 5 }}>
-                <li>Since 2015</li>
-                <li>Investment banking &amp; PE experience</li>
-                <li>Clients across Asia-Pacific</li>
-              </ul>
             </div>
           </div>
           <a href="#shift" className="ak-scrollcue" data-pause-offscreen="" aria-hidden="true" tabIndex={-1}>
