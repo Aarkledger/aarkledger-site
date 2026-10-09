@@ -1,6 +1,8 @@
 "use client";
 
-export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel, linkedin }) {
+export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel, linkedin, onQuickView, basePath = "" }) {
+  // basePath lets the in-page story links work from other routes (e.g. "/" on /privacy -> "/#problem").
+  const h = (id) => `${basePath}#${id}`;
   return (
     <footer className="ak-footer">
       <div className="ak-shell">
@@ -17,16 +19,28 @@ export default function SiteFooter({ logoSrc, email, corpEmail, phone, phoneTel,
           </div>
           <nav className="ak-footer-col" aria-label="The story">
             <span className="ak-footer-h">The story</span>
-            <a href="#problem">The problem</a>
-            <a href="#shift">Why operators</a>
-            <a href="#team">Our team</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#model">How it works</a>
-            <a href="#packages">Packages</a>
+            <a href={h("problem")}>The problem</a>
+            <a href={h("shift")}>Why operators</a>
+            <a href={h("team")}>Our team</a>
+            <a href={h("expertise")}>Expertise</a>
+            <a href={h("model")}>How it works</a>
+            <a href={h("packages")}>Packages</a>
           </nav>
           <nav className="ak-footer-col" aria-label="Resources">
             <span className="ak-footer-h">Resources</span>
+            {onQuickView && (
+              <button
+                type="button"
+                className="ak-qv-trigger"
+                data-qv-trigger=""
+                onClick={(e) => onQuickView(e.currentTarget)}
+              >
+                Quick view
+              </button>
+            )}
             <a href="/deadlines">Tax Calendar</a>
+            <a href="/privacy">Privacy Notice</a>
+            <a href="/privacy#request">Request data deletion</a>
           </nav>
           <div className="ak-footer-col">
             <span className="ak-footer-h">Contact</span>

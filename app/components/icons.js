@@ -26,6 +26,13 @@ export const ArrowRight = ({ size = 16, ...p }) => (
   </svg>
 );
 
+export const Close = ({ size = 20, ...p }) => (
+  <svg {...base} width={size} height={size} {...p}>
+    <path d="M6 6l12 12" />
+    <path d="M18 6L6 18" />
+  </svg>
+);
+
 export const ArrowDown = ({ size = 16, ...p }) => (
   <svg {...base} width={size} height={size} {...p}>
     <path d="M12 5v14" />

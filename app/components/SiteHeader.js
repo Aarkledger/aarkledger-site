@@ -17,7 +17,7 @@ const CHAPTERS = [
 // One name per chapter everywhere: eyebrow, rail, nav, menu and footer.
 const SHEET_LINKS = CHAPTERS;
 
-export default function SiteHeader({ logoSrc, email, phone, phoneTel }) {
+export default function SiteHeader({ logoSrc, email, phone, phoneTel, onQuickView }) {
   const [open, setOpen] = useState(false);
   const [chapter, setChapter] = useState("");
   const [ctaShow, setCtaShow] = useState(false);
@@ -101,7 +101,7 @@ export default function SiteHeader({ logoSrc, email, phone, phoneTel }) {
   return (
     <>
       {/* Without JS the menu sheet cannot open, so hide its toggle. */}
-      <noscript dangerouslySetInnerHTML={{ __html: "<style>.ak-menu-btn{display:none!important}</style>" }} />
+      <noscript dangerouslySetInnerHTML={{ __html: "<style>.ak-menu-btn,[data-qv-trigger]{display:none!important}</style>" }} />
       <a className="ak-skip" href="#problem">
         Skip to content
       </a>
@@ -111,6 +111,16 @@ export default function SiteHeader({ logoSrc, email, phone, phoneTel }) {
             <img className="brand-logo" src={logoSrc} alt="Aarkledger" />
           </a>
           <nav className="ak-nav" aria-label="Primary">
+            {onQuickView && (
+              <button
+                type="button"
+                className="ak-qv-trigger"
+                data-qv-trigger=""
+                onClick={(e) => onQuickView(e.currentTarget)}
+              >
+                <span className="ak-link">Quick view</span>
+              </button>
+            )}
             <a href="#shift" className="ak-link">Why operators</a>
             <a href="#team" className="ak-link">Our team</a>
             <a href="#expertise" className="ak-link">Expertise</a>
@@ -165,6 +175,19 @@ export default function SiteHeader({ logoSrc, email, phone, phoneTel }) {
           <a href="#contact" className="ak-btn ak-btn--block" onClick={() => close(false)}>
             Talk to an operator <ArrowRight size={16} />
           </a>
+          {onQuickView && (
+            <button
+              type="button"
+              className="ak-btn ak-btn--block ak-qv-sheet-btn"
+              data-qv-trigger=""
+              onClick={() => {
+                close(false);
+                onQuickView(toggleRef.current);
+              }}
+            >
+              Quick view
+            </button>
+          )}
           <div className="ak-sheet-contact">
             <a href={`mailto:${email}`}>{email}</a>
             <a href={`tel:${phoneTel}`}>{phone}</a>
@@ -187,7 +210,7 @@ export default function SiteHeader({ logoSrc, email, phone, phoneTel }) {
         ))}
       </nav>
 
-      <nav aria-label="Quick contact">
+      <nav className="ak-sticky-cta-nav" aria-label="Quick contact">
         <a
           href="#contact"
           className={`ak-sticky-cta${showCta ? " is-shown" : ""}`}
