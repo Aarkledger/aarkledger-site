@@ -11,6 +11,7 @@ const LOGO_SRC = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARQAAABQCAYAAADY
 import { useCallback, useRef } from "react";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import QuickView from "./components/QuickView";
 import EntropyField from "./components/EntropyField";
 import IssueRegister from "./components/IssueRegister";
 import LifecycleChart from "./components/LifecycleChart";
@@ -337,6 +338,14 @@ export default function Home() {
     if (nameRef.current) nameRef.current.focus({ preventScroll: true });
   }, []);
 
+  const [qvOpen, setQvOpen] = useState(false);
+  const qvReturnRef = useRef(null);
+  const openQuickView = useCallback((el) => {
+    qvReturnRef.current = el || null;
+    setQvOpen(true);
+  }, []);
+  const closeQuickView = useCallback(() => setQvOpen(false), []);
+
   const selectInterest = useCallback(
     (interest, opts = {}) => {
       setForm((f) => ({
@@ -375,7 +384,7 @@ export default function Home() {
 
   return (
     <>
-      <SiteHeader logoSrc={LOGO_SRC} email={EMAIL} phone={PHONE} phoneTel={PHONE_TEL} />
+      <SiteHeader logoSrc={LOGO_SRC} email={EMAIL} phone={PHONE} phoneTel={PHONE_TEL} onQuickView={openQuickView} />
 
       <main id="top">
         {/* ============================ 01 PROBLEM ============================ */}
@@ -808,7 +817,16 @@ export default function Home() {
               </div>
 
               <div className="ak-contact-form" ref={panelRef}>
-                <form className="ak-form" onSubmit={handleSubmit} aria-label="Enquiry">
+                {/* action/method/encType: no-JavaScript fallback only, so a submit before hydration composes an
+                    email instead of putting the fields in a GET URL. Once hydrated, handleSubmit takes over. */}
+                <form
+                  className="ak-form"
+                  action={`mailto:${EMAIL}?subject=${encodeURIComponent("Website enquiry")}`}
+                  method="post"
+                  encType="text/plain"
+                  onSubmit={handleSubmit}
+                  aria-label="Enquiry"
+                >
                   <div className="ak-form-head">
                     <span className="ak-label">Open item · yours</span>
                     <span className={`ak-status${ready ? " is-ready" : ""}`} aria-hidden="true">
@@ -889,6 +907,7 @@ export default function Home() {
                   </button>
                   <p className="ak-micro">
                     Opens your email app with your message addressed to {EMAIL}. Nothing is stored on this website.
+                    How we handle what you send: <a href="/privacy">Privacy Notice</a>.
                   </p>
                 </form>
               </div>
@@ -945,6 +964,23 @@ export default function Home() {
         phone={PHONE}
         phoneTel={PHONE_TEL}
         linkedin={LINKEDIN}
+        onQuickView={openQuickView}
+      />
+
+      <QuickView
+        open={qvOpen}
+        onOpen={openQuickView}
+        onClose={closeQuickView}
+        returnFocusRef={qvReturnRef}
+        onEnquire={goContact}
+        logoSrc={LOGO_SRC}
+        email={EMAIL}
+        phone={PHONE}
+        phoneTel={PHONE_TEL}
+        packages={PACKAGES}
+        erps={ERPS}
+        also={ALSO}
+        privacyHref="/privacy"
       />
     </>
   );
