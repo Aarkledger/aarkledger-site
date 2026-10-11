@@ -38,7 +38,7 @@ export const metadata = {
     "Asia Pacific",
   ],
   openGraph: {
-    title: "Aarkledger | Operators, not consultants",
+    title: "Aarkledger | Embedded finance & ERP team",
     description:
       "An experienced finance team that embeds in your operations: accounting, compliance, FP&A, payroll, ERP systems and data across Asia-Pacific.",
     url: "https://aarkledger.com",
